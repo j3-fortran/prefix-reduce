@@ -1,4 +1,4 @@
-To: J3                                                     J3/25-186
+To: J3                                                     J3/25-WIP
 From: Brandon Cook & Dan Bonachea
 Subject:  Specifications and Syntax for Local Prefix Operation Intrinsics
 Date: 2025-October-13
