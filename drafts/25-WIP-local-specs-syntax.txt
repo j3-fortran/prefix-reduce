@@ -405,8 +405,7 @@ R51. The result of REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION) is the
      Example:
 
      A = | 1 2 3 |
-     IDENTITY = 0
-     B = REDUCE_PREFIX_EXCLUSIVE(A, ADD, IDENTITY)
+     B = REDUCE_PREFIX_EXCLUSIVE(A, ADD, IDENTITY=0)
      ! B = | 0 1 3 |
 
      Example:
@@ -440,9 +439,8 @@ R57. If the MASK argument is provided, let r_i, a_i, m_i refer to the
 
      A = | 1 2 3 4 |
      M = | T T F T |
-     IDENTITY = 0
 
-     B = REDUCE_PREFIX_EXCLUSIVE(A, ADD, IDENTITY, MASK=M)
+     B = REDUCE_PREFIX_EXCLUSIVE(A, ADD, IDENTITY=0, MASK=M)
      ! prefix reduction of | 1 2 _ 4 |
      ! B = | 0 1 3 3 |
 
@@ -450,9 +448,8 @@ R57. If the MASK argument is provided, let r_i, a_i, m_i refer to the
 
      A = | 1 2 3 4 |
      M = | T F F T |
-     IDENTITY = 0
 
-     B = REDUCE_PREFIX_EXCLUSIVE(A, ADD, IDENTITY, MASK=M)
+     B = REDUCE_PREFIX_EXCLUSIVE(A, ADD, IDENTITY=0, MASK=M)
      ! prefix reduction of | 1 _ _ 4 |
      ! B = | 0 1 1 1 |
 
@@ -460,8 +457,7 @@ R57. If the MASK argument is provided, let r_i, a_i, m_i refer to the
 
      A = | 1 2 3 4 |
      M = | F T T T |
-     IDENTITY=100
-     B = REDUCE_PREFIX_EXCLUSIVE(A, ADD, IDENTITY, MASK=M)
+     B = REDUCE_PREFIX_EXCLUSIVE(A, ADD, IDENTITY=100, MASK=M)
      ! prefix reduction initialized by 100 of | _ 2 3 4 |
      ! B = | 100 100 102 105 |
 
@@ -490,8 +486,7 @@ R57. If the MASK argument is provided, let r_i, a_i, m_i refer to the
          | 1 1 2 3 |
      M = | T T F T |
          | T T T T |
-     IDENTITY = 0
-     B = REDUCE_PREFIX_EXCLUSIVE(A, ADD, IDENTITY, DIM = 2, MASK = M)
+     B = REDUCE_PREFIX_EXCLUSIVE(A, ADD, IDENTITY=0, DIM=2, MASK=M)
      ! B = | 0 1 3 3 |
            | 0 1 2 4 |
 
