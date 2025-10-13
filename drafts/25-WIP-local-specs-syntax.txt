@@ -1,0 +1,6 @@
+To: J3                                                     J3/##-###
+From: Brandon Cook & Dan Bonachea
+Subject:  Specifications and Syntax for Local Prefix Operation Intrinsics
+Date: 2025-10-01????
+References: J3/25-145r1, WG5/N-2249
+
