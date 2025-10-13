@@ -295,8 +295,8 @@ R33. If the optional IDENTITY argument is provided, then the
      B = REDUCE_PREFIX_INCLUSIVE(A, ADD, IDENTITY=42)
      ! B = | 43 45 48 |
 
-R35. If the ORDERED argument is provided, the reduction process (D01)
-     is ordered.
+R35. If the ORDERED argument is present with the value true, then the
+     reduction process (D01) is ordered.
 
 R37. If the MASK argument is provided, only elements of ARRAY that
      correspond to true elements of MASK contribute to the result. The
@@ -415,8 +415,8 @@ R51. The result of REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION) is the
      B = REDUCE_PREFIX_EXCLUSIVE(A, ADD, IDENTITY=42)
      ! B = | 42 43 45 |
 
-R55. If the ORDERED argument is provided, the reduction process (D01)
-     is ordered.
+R55. If the ORDERED argument is present with the value true, then the
+     reduction process (D01) is ordered.
 
 R57. If the MASK argument is provided, let r_i, a_i, m_i refer to the
      i^{th} element in the result, ARRAY or MASK (respectively), in
