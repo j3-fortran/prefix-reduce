@@ -250,8 +250,9 @@ R03. OPERATION shall be a pure function with exactly two arguments;
      argument has the ASYNCHRONOUS, TARGET, or VALUE attribute, the
      other shall have that attribute. Its result shall be a
      nonpolymorphic scalar and have the same declared type and type
-     parameters as ARRAY. OPERATION should implement a mathematically
-     associative operation. It need not be commutative.
+     parameters as ARRAY. If ORDERED is absent or false, then OPERATION
+     should implement a mathematically associative operation. In any case,
+     OPERATION need not be commutative.
 
 R05. DIM shall be an integer scalar with a value in the range
      1 <= DIM <= n, where n is the rank of ARRAY.
