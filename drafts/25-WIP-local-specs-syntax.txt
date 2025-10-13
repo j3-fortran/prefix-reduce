@@ -312,24 +312,24 @@ R37. If the MASK argument is provided, only elements of ARRAY that
      (assuming ARRAY has rank 1):
 
        if (MASK(1)) then
-	 if (present(IDENTITY)) then
-	   RESULT(1) = OPERATION(IDENTITY, ARRAY(1))
-	 else
-	   RESULT(1) = ARRAY(1)
-	 end if
+         if (present(IDENTITY)) then
+           RESULT(1) = OPERATION(IDENTITY, ARRAY(1))
+         else
+           RESULT(1) = ARRAY(1)
+         end if
        else ! MASK(1) == false
-	 if (present(IDENTITY)) then
-	   RESULT(1) = IDENTITY
-	 else
-	   ERROR STOP "missing IDENTITY"
-	 end if
+         if (present(IDENTITY)) then
+           RESULT(1) = IDENTITY
+         else
+           ERROR STOP "missing IDENTITY"
+         end if
        end if
        do i = 2, size(ARRAY)
-	 if (MASK(i)) then
-	   RESULT(i) = OPERATION(RESULT(i-1), ARRAY(i))
-	 else ! MASK(i) == false
-	   RESULT(i) = RESULT(i-1)
-	 endif
+         if (MASK(i)) then
+           RESULT(i) = OPERATION(RESULT(i-1), ARRAY(i))
+         else ! MASK(i) == false
+           RESULT(i) = RESULT(i-1)
+         endif
        end do
 
      Example 1:
@@ -430,10 +430,10 @@ R57. If the MASK argument is provided, let r_i, a_i, m_i refer to the
 
        tmp = IDENTITY
        do i = 1, size(ARRAY)
-	 RESULT(i) = tmp
-	 if (MASK(i)) then
-	   tmp = OPERATION(tmp, ARRAY(i))
-	 end if
+         RESULT(i) = tmp
+         if (MASK(i)) then
+           tmp = OPERATION(tmp, ARRAY(i))
+         end if
        end do
 
      Example 1:
