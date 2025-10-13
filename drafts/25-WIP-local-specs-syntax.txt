@@ -250,8 +250,9 @@ R03. OPERATION shall be a pure function with exactly two arguments;
      argument has the ASYNCHRONOUS, TARGET, or VALUE attribute, the
      other shall have that attribute. Its result shall be a
      nonpolymorphic scalar and have the same declared type and type
-     parameters as ARRAY. OPERATION should implement a mathematically
-     associative operation. It need not be commutative.
+     parameters as ARRAY. If ORDERED is absent or false, then OPERATION
+     should implement a mathematically associative operation. In any case,
+     OPERATION need not be commutative.
 
 R05. DIM shall be an integer scalar with a value in the range
      1 <= DIM <= n, where n is the rank of ARRAY.
@@ -285,7 +286,7 @@ R31. The result of REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION) is the
      B = REDUCE_PREFIX_INCLUSIVE(A, ADD)
      ! B = | 1 3 6 |
 
-R33. If the optional IDENTITY argument is provided, then the
+R33. If the optional IDENTITY argument is present, then the
      reduction process (D01) is initialized by IDENTITY.
 
      Example:
@@ -294,10 +295,10 @@ R33. If the optional IDENTITY argument is provided, then the
      B = REDUCE_PREFIX_INCLUSIVE(A, ADD, IDENTITY=42)
      ! B = | 43 45 48 |
 
-R35. If the ORDERED argument is provided, the reduction process (D01)
-     is ordered.
+R35. If the ORDERED argument is present with the value true, then the
+     reduction process (D01) is ordered.
 
-R37. If the MASK argument is provided, only elements of ARRAY that
+R37. If the MASK argument is present, only elements of ARRAY that
      correspond to true elements of MASK contribute to the result. The
      result is the inclusive prefix reduction (D02) of the elements
      which correspond to true elements of MASK, initialized by
@@ -414,10 +415,10 @@ R51. The result of REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION) is the
      B = REDUCE_PREFIX_EXCLUSIVE(A, ADD, IDENTITY=42)
      ! B = | 42 43 45 |
 
-R55. If the ORDERED argument is provided, the reduction process (D01)
-     is ordered.
+R55. If the ORDERED argument is present with the value true, then the
+     reduction process (D01) is ordered.
 
-R57. If the MASK argument is provided, let r_i, a_i, m_i refer to the
+R57. If the MASK argument is present, let r_i, a_i, m_i refer to the
      i^{th} element in the result, ARRAY or MASK (respectively), in
      array element order. Each element of the result, r_i, has the
      value of the generalized noncommutative reduction initialized by
