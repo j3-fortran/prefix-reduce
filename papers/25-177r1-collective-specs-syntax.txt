@@ -1,8 +1,8 @@
-To: J3                                                     J3/25-177
+To: J3                                                     J3/25-177r1
 From: Brandon Cook & Dan Bonachea
 Subject: Specifications and Syntax for US20 Collective Subroutines
  for Prefix Reductions
-Date: 2025-October-01
+Date: 2025-October-15
 References: J3/25-144r1, J3/25-145r1, J3/25-007r1, WG5/N-2239
 
 1. Background
