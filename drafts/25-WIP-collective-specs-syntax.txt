@@ -92,10 +92,6 @@ S09. Definition of computed values assigned to A.
      processor-dependent approximation of the sum of corresponding
      elements across the elements of S_i.
 
-S11. By definition, sum is assumed to be associative and commutative.
-
-S13. The identity value for sum is implicitly zero.
-
 S15. The computed value is assigned to A if no error condition
      occurs. Otherwise, A becomes undefined (as in CO_SUM).
 
@@ -150,25 +146,10 @@ R19. Definition of computed values assigned to A.
      In the inclusive case S_i is the ordered list [A_1, ..., A_i].
      In the exclusive case S_i is the ordered list
      [IDENTITY, A_1, ..., A_{i-1}].
-     The value of R_i is the generalized noncommutative reduction with
-     OPERATION of S_i.
+     The value of R_i is the result of applying OPERATION to adjacent
+     items of S_i, without commutation, until a single item remains.
+     If A is an array, OPERATION is applied elementwise.
 
-     The generalized noncommutative reduction of an ordered list of
-     elements with binary operation OPERATION is defined as the result
-     of an iterative process:
-
-     1. If the list contains a single element, then the result is the
-        value of the element and the iterative process is complete.
-     2. Select any two adjacent elements x and y such that y follows
-        x. The choice is processor dependent.
-     3. If A is scalar, compute a scalar temporary value:
-            T = OPERATION(x, y).
-        If A is an array, compute an array temporary value T by
-        applying OPERATION element-wise to corresponding elements of x
-        and y, passing the element of x as the first argument and y as
-        the second.  Replace the two elements x and y in the list with
-        the value T.
-     4. Repeat steps 1,2 and 3 until complete
 
 R21. The specifications for STAT and ERRMSG directly mirror the same
      arguments in the existing collective subroutines, and the
