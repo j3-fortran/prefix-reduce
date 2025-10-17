@@ -8,12 +8,12 @@ TODO
 1. DONE Changelog in Introduction
 2. DONE: Insert routines in Table 16.1
 3. Add a new section for each new collective (4 in total).
-4. Update Annex A.2
+4. DONE: Update Annex A.2
 5. Order of words in the name? 
    RESOLVED: leave as-is for this paper
 6. Figure out whether and how this paper should handle the "merge conflict"
    with addition of TEAM argument in 25-127r1 (edits passed last mtg).
-6. Figure out whether and how this paper should handle the "merge conflict"
+7. Figure out whether and how this paper should handle the "merge conflict"
    with addition of COMPLETION argument in 25-165r1 (edits in-progress).
 
 1. Background
@@ -104,20 +104,24 @@ ERRMSG (optional) shall be a noncoindexed default character scalar. It is an INT
 5 Example. 
 
 
+[596:19-20] In Annex A.2 Processor dependencies, replace the following
+line:
+
+"* the computed value of the intrinsic subroutine CO_REDUCE (16.9.57) and
+   the intrinsic subroutine CO_SUM (16.9.58);"
+
+with the following line:
+
+"* the computed value of the intrinsic subroutines CO_REDUCE (16.9.57),
+   CO_REDUCE_PREFIX_EXCLUSIVE (16.9.??), CO_REDUCE_PREFIX_INCLUSIVE
+   (16.9.??), CO_SUM (16.9.58), CO_SUM_PREFIX_EXCLUSIVE (16.9.??) and
+   CO_SUM_PREFIX_INCLUSIVE (16.9.??);"
 
 
-
-2. Consistency with Local Prefix Operation Intrinsics
+=====================================================
+ OLD STUFF BELOW
 =====================================================
 
-Paper J3/25-145r1 describes requirements and use cases for local
-prefix reduction operation intrinsics, which are mathematically
-similar to the operations performed by the collective subroutines
-proposed in this paper.
-
-This paper endeavors to preserve symmetry in the naming of
-corresponding intrinsics and dummy arguments between the two families
-of intrinsics.
 
 3. Image ordering
 =================
