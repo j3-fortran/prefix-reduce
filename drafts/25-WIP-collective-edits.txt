@@ -48,24 +48,47 @@ after the entry for CO_SUM add:
 "CO_SUM_PREFIX_INCLUSIVE   (A, [, STAT, ERRMSG])
     C    Compute inclusive prefix sum across images."
 
+[412] In 16.9 Specifications of the standard intrinsic proceedures,
+after the specification of CO_SUM, add
+
+16.9.?? CO_SUM_PREFIX_EXCLUSIVE(A [, STAT, ERRMSG])
+
+<<Description.>> Compute exclusive prefix sum across images.
+
+<<Class.>> Collective subroutine.
+
+<<Arguments.>>
+
+A shall be of numeric type. It shall have the same shape, type, and
+  type parameter values, in corresponding references. It shall not be
+  a coindexed object. It is an INTENT (INOUT) argument.
+
+  <description of result>
+
+  The computed value is assigned to A if no error condition
+  occurs. Otherwise, A becomes undefined.
+ 
+STAT (optional) shall be a noncoindexed integer scalar with a decimal
+     exponent range of at least four. It is an INTENT (OUT) argument.
+
+ERRMSG (optional) shall be a noncoindexed default character scalar. It
+       is an INTENT (INOUT) argument.
+
+The semantics of STAT and ERRMSG are described in 16.6.
+
+<<Example.>> If the number of images in the current team is three and
+the value of A is [1, 2] on image one, [3, 4] on image two, and [5, 6]
+on image three, after executing the statement CALL
+CO_SUM_PREFIX_EXCLUSIVE(A), the value of A is [0, 0] on image one, [1,
+2] on image two, and [4, 6] on image three.
 
 
 
-CO_SUM_PREFIX_INCLUSIVE(A [, STAT, ERRMSG])
 
 16.9.58 CO_SUM (A [, RESULT_IMAGE, STAT, ERRMSG])
 1 Description. Compute sum across images.
 2 Class. Collective subroutine.
 3 Arguments.
-A shall be of numeric type. It shall have the same shape, type, and type parameter values, in cor-
-responding references. It shall not be a coindexed object. It is an INTENT (INOUT) argument.
-If it is scalar, the computed value is equal to a processor-dependent approximation to the sum
-of the values of A in corresponding references. If it is an array, each element of the computed
-value is equal to a processor-dependent approximation to the sum of all corresponding ele-
-ments of A in corresponding references.
-The computed value is assigned to A if no error condition occurs, and either RESULT_IMAGE is
-absent, or the executing image is the one identified by RESULT_IMAGE. Otherwise, A becomes
-undefined.
 RESULT_IMAGE (optional) shall be an integer scalar. It is an INTENT (IN) argument. Its presence, and
 value if present, shall be the same in all corresponding references. If it is present, its value
 shall be that of an image index in the current team.
@@ -73,9 +96,7 @@ STAT (optional) shall be a noncoindexed integer scalar with a decimal exponent r
 an INTENT (OUT) argument.
 ERRMSG (optional) shall be a noncoindexed default character scalar. It is an INTENT (INOUT) argument.
 4 The semantics of STAT and ERRMSG are described in 16.6.
-5 Example. If the number of images in the current team is two and A is the array [1, 5, 3] on one image and
-[4, 1, 6] on the other image, the value of A after executing the statement CALL CO_SUM(A) is [5, 6, 9] on
-both images.
+5 Example. 
 
 
 
