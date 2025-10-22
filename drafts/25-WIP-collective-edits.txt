@@ -88,7 +88,8 @@ OPERATION shall be a pure function with exactly two arguments; the result
           nonpointer, nonpolymorphic data object with the same type and
           type parameter values as A. The arguments shall not be optional.
           If one argument has the ASYNCHRONOUS, TARGET, or VALUE attribute,
-          the other shall have that attribute. OPERATION shall implement a
+          the
+          other shall have that attribute. OPERATION shall implement a
           mathematically associative operation. OPERATION shall be the same
           function on all images in corresponding references.
 
@@ -135,11 +136,11 @@ A shall be of numeric type. It shall have the same shape, type, and
   If A is scalar, the computed value provided to any given image I (with I
   greater than one) is equal to a processor-dependent approximation to the
   sum of the values of A in corresponding references provided by images
-  (1:I-1).
+  1 to (I-1).
   If A is an array, each element of the computed value provided to any
   given image I (with I greater than one) is equal to a processor-dependent
   approximation to the sum of the values in corresponding elements of A in
-  corresponding references provided by images (1:I-1).
+  corresponding references provided by images 1 to (I-1).
 
   The computed value is assigned to A if no error condition
   occurs. Otherwise, A becomes undefined.
@@ -173,11 +174,11 @@ A shall be of numeric type. It shall have the same shape, type, and
 
   If A is scalar, the computed value provided to any given image I is equal
   to a processor-dependent approximation to the sum of the values of A in
-  corresponding references provided by images (1:I).
+  corresponding references provided by images 1 to I.
   If A is an array, each element of the computed value provided to any
   given image I is equal to a processor-dependent approximation to the sum
   of the values in corresponding elements of A in corresponding references
-  provided by images (1:I).
+  provided by images 1 to I.
 
   The computed value is assigned to A if no error condition
   occurs. Otherwise, A becomes undefined.
