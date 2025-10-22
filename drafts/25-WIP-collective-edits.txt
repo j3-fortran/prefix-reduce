@@ -88,22 +88,24 @@ OPERATION shall be a pure function with exactly two arguments; the result
           nonpointer, nonpolymorphic data object with the same type and
           type parameter values as A. The arguments shall not be optional.
           If one argument has the ASYNCHRONOUS, TARGET, or VALUE attribute,
-          the
-          other shall have that attribute. OPERATION shall implement a
+          the other shall have that attribute. OPERATION shall implement a
           mathematically associative operation. OPERATION shall be the same
           function on all images in corresponding references.
-
-  ** TODO: Description below probably needs more work. It's currently
-           rather different from the verbal structure of CO_REDUCE. **
+          
+          ** TODO: Maybe append:
+          , and shall not depend on the value of THIS_IMAGE().
 
   The computed value for an exclusive prefix reduction over a list of
   values is the result of an iterative process. 
   Each scalar input value provided by image i is referred to as A_i.
   The corresponding computed result value provided to image i is referred
   to as R_i.
-  S_i is the ordered list [IDENTITY, A_1, ..., A_{i-1}].
-  The value of R_i is the result of applying OPERATION to adjacent
-  items of S_i, without commutation, until a single item remains.
+  S_i is initially the ordered list [IDENTITY, A_1, ..., A_{i-1}].
+  Each iteration starts with a processor-dependent choice of item x from
+  the list S_i.  Adjacent items x and y (where x preceeds y) are removed
+  from the list and replaced with the value of OPERATION(x, y).  The
+  process terminates when the list has only one item; this is the computed
+  value of R_i.
 
 STAT (optional) shall be a noncoindexed integer scalar with a decimal
      exponent range of at least four. It is an INTENT (OUT) argument.
@@ -216,6 +218,46 @@ with the following line:
 =====================================================
  OLD STUFF BELOW
 =====================================================
+
+
+CO_REDUCE verbiage:
+
+If A is scalar, the computed value is the result of the reduction operation of
+applying OPERATION to the values of A in all corresponding references. If A is
+an array, each element of the computed value is equal to the result of the
+reduction operation of applying OPERATION to corresponding elements of A in all
+corresponding references.
+...
+The computed value of a reduction operation over a set of values is the
+result of an iterative process. Each iteration involves the evaluation of
+OPERATION (x, y) for x and y in the set, the removal of x and y from the
+set, and the addition of the value of OPERATION (x, y) to the set. The
+process terminates when the set has only one element; this is the computed
+value.
+
+Pathological example:
+
+pure function OPERATION(x,y) result(r)
+  INTEGER :: x, y, r
+  r = MAX(a,b,THIS_IMAGE())
+end function
+
+This OPERATION is a pure function as defined in F23 15.7 and 16.1. 
+It is associative and commutative.
+It also satisfies all the other requirements for the OPERATION argument to
+CO_REDUCE or CO_REDUCE_PREFIX_* with A of integer type.
+
+Passing this OPERATION along with the following arguments to either
+CO_REDUCE or CO_REDUCE_PREFIX_* will reveal some information about which
+images evaluated the OPERATION for any given input element (and for any
+given image's result).
+
+A = [0, 0]
+IDENTITY = 0
+
+Other similar OPERATION functions can be crafted over a derived type to
+reveal arbitrary information about which images executed the operation and
+even in what order.
 
 
 3. Image ordering
