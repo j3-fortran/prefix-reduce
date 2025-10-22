@@ -79,15 +79,16 @@ A shall not be polymorphic. It shall not be of a type with an ultimate
   The computed value is assigned to A if no error condition
   occurs. Otherwise, A becomes undefined.
 
-IDENTITY shall be a scalar with the same declared type and type parameters
-         as A. IDENTITY shall have the same value in corresponding
-         references
+IDENTITY shall be a scalar with the same declared type and type parameter
+         values as A. IDENTITY shall have the same value in corresponding
+         references.
+
 OPERATION shall be a pure function with exactly two arguments; the result
           and each argument shall be a scalar, nonallocatable, noncoarray,
           nonpointer, nonpolymorphic data object with the same type and
-          type parameters as A. The arguments shall not be optional. If one
-          argument has the ASYNCHRONOUS, TARGET, or VALUE attribute, the
-          other shall have that attribute. OPERATION shall implement a
+          type parameter values as A. The arguments shall not be optional.
+          If one argument has the ASYNCHRONOUS, TARGET, or VALUE attribute,
+          the other shall have that attribute. OPERATION shall implement a
           mathematically associative operation. OPERATION shall be the same
           function on all images in corresponding references.
 
@@ -315,7 +316,7 @@ R07. OPERATION shall be a pure function.
 R09. OPERATION shall accept exactly two arguments; the result and
      each argument must be a scalar, nonallocatable, noncoarray,
      nonpointer, nonpolymorphic, nonoptional data object with the same
-     declared type and type parameters as the input ARRAY.
+     declared type and type parameter values as the input ARRAY.
 
 R11. OPERATION shall implement a mathematically associative operation.
 
