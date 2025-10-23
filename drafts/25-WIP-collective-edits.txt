@@ -13,6 +13,7 @@ TODO
    RESOLVED: leave as-is for this paper
 6. Add multiple forms as resolved in plenary, incorporating TEAM and
    COMPLETION in syntax
+   Leave placeholders for description of new arguments for r0
 7. Clone REDUCE_INCLUSIVE
 
 1. Background
@@ -91,9 +92,6 @@ OPERATION shall be a pure function with exactly two arguments; the result
           mathematically associative operation. OPERATION shall be the same
           function on all images in corresponding references.
           
-          ** TODO: Maybe append:
-          , and shall not depend on the value of THIS_IMAGE().
-
   The computed value for an exclusive prefix reduction over a list of
   values is the result of an iterative process. 
   Each scalar input value provided by image i is referred to as A_i.
@@ -117,6 +115,15 @@ The semantics of STAT and ERRMSG are described in 16.6.
 <<Example.>> 
  
 *** TODO ***
+Examples:
+EXCLUSIVE
+  MAXLOC over a derived type of real value and integer image ID
+    computes max value in prefix and the image that provided it
+INCLUSIVE
+  derived type: value and boolean
+    operation on boolean flag is XOR
+    illustrates segmented prefix reduction
+    MPI Example 6.24.
 
 [412:4+] In 16.9 Specifications of the standard intrinsic proceedures,
 after the specification of CO_SUM, add:
@@ -217,6 +224,9 @@ with the following line:
 =====================================================
  OLD STUFF BELOW
 =====================================================
+
+          ** TODO: Maybe append to OPERATION requirements for REDUCE:
+          , and shall not depend on the value of THIS_IMAGE().
 
 
 CO_REDUCE verbiage:
