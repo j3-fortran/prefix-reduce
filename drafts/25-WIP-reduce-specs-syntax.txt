@@ -1,7 +1,7 @@
-To: J3                                                     J3/25-XXX
+To: J3                                                     J3/25-###
 From: Brandon Cook & Dan Bonachea
 Subject:  Specifications and Syntax for Local Prefix Reduce Intrinsics
-Date: 2025-October-13
+Date: 2025-October-23
 References: J3/25-145r1, 25-186r2, 25-195r1, WG5/N-2249
 
 1. Background
@@ -67,24 +67,24 @@ D01. Generalized noncommutative reduction
 D02. Inclusive prefix reduction
 
      The inclusive prefix reduction of a sequence S with n elements
-     s_1, s_2, ..., s_n, with binary operation f (and optional initial
-     value z), is the sequence R with n elements r_1, r_2, ..., r_n.
-     r_i is the generalized noncommutative reduction with f (and
-     initialized by z, if provided) of the sequence s_1, s_2, ..., s_i.
+     s_1, s_2, ..., s_n, with binary operation f, is the sequence R
+     with n elements r_1, r_2, ..., r_n.  r_i is the generalized
+     noncommutative reduction with f of the sequence s_1, s_2, ...,
+     s_i.
 
 D03. Exclusive prefix reduction
 
      The exclusive prefix reduction of a sequence S with n elements
      s_1, s_2, ..., s_n, with binary operation f and initial value z,
-     is the sequence R with n elements r_1, r_2, ...r_n.
-     r_1 is z, and for i>1, r_i is the generalized noncommutative
-     reduction with f initialized by z of the sequence
-     s_1, s_2, ..., s_{i-1}.
+     is the sequence R with n elements r_1, r_2, ...r_n.  r_1 is z,
+     and for i>1, r_i is the generalized noncommutative reduction with
+     f of the sequence z, s_1, s_2, ..., s_{i-1}.
 
 D04. OPERATION=MULT
 
-     For all examples in this section, assume that ADD has been defined
-     as a compliant OPERATION implementing integer multiplication.
+     For all examples in this section, assume that MULT has been
+     defined as a compliant OPERATION implementing integer
+     multiplication.
 
 3.2.2 Arguments
 ---------------
@@ -98,9 +98,14 @@ R03. OPERATION shall be a pure function with exactly two arguments;
      argument has the ASYNCHRONOUS, TARGET, or VALUE attribute, the
      other shall have that attribute. Its result shall be a
      nonpolymorphic scalar and have the same declared type and type
-     parameters as ARRAY. If ORDERED is absent or false, then OPERATION
-     should implement a mathematically associative operation. In any case,
-     OPERATION need not be commutative.
+     parameters as ARRAY. If ORDERED is absent or false, then
+     OPERATION should implement a mathematically associative
+     operation. In any case, OPERATION need not be commutative.
+
+R04. NOTE: If OPERATION is not computationally associative,
+     REDUCE_PREFIX_*CLUSIVE without ORDERED=.TRUE. with the same
+     argument values might not always produce the same result, as the
+     processor can apply the associative law to the evaluation.
 
 R05. DIM shall be an integer scalar with a value in the range
      1 <= DIM <= n, where n is the rank of ARRAY.
