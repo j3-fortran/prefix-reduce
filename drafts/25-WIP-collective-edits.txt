@@ -11,10 +11,9 @@ TODO
 4. DONE: Update Annex A.2
 5. Order of words in the name? 
    RESOLVED: leave as-is for this paper
-6. Figure out whether and how this paper should handle the "merge conflict"
-   with addition of TEAM argument in 25-127r1 (edits passed last mtg).
-7. Figure out whether and how this paper should handle the "merge conflict"
-   with addition of COMPLETION argument in 25-165r1 (edits in-progress).
+6. Add multiple forms as resolved in plenary, incorporating TEAM and
+   COMPLETION in syntax
+7. Clone REDUCE_INCLUSIVE
 
 1. Background
 =============
