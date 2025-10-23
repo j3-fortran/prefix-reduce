@@ -92,11 +92,11 @@ R01. ARRAY shall be an array of any type.
 R03. OPERATION shall be a pure function with exactly two arguments;
      each argument shall be a scalar, nonallocatable, noncoarray,
      nonpointer, nonpolymorphic, nonoptional dummy data object with
-     the same declared type and type parameters as ARRAY. If one
+     the same declared type and type parameter values as ARRAY. If one
      argument has the ASYNCHRONOUS, TARGET, or VALUE attribute, the
      other shall have that attribute. Its result shall be a
      nonpolymorphic scalar and have the same declared type and type
-     parameters as ARRAY. If ORDERED is absent or false, then
+     parameter values as ARRAY. If ORDERED is absent or false, then
      OPERATION should implement a mathematically associative
      operation. In any case, OPERATION need not be commutative.
 
@@ -113,7 +113,7 @@ R15. ORDERED (optional) shall be a logical scalar.
 3.3 Result Characteristics
 --------------------------
 
-R17. The result is of the same declared type, type parameters, rank,
+R17. The result is of the same declared type, type parameter values, rank,
      and shape as ARRAY.
 
 3.3.1 Result Value: REDUCE_PREFIX_INCLUSIVE
