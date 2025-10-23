@@ -64,7 +64,6 @@ D01. Generalized noncommutative reduction
 
      4. Repeat steps 1-3 until a single result is obtained.
 
-# not sure if we use these two..
 D02. Inclusive prefix reduction
 
      The inclusive prefix reduction of a sequence S with n elements
@@ -149,11 +148,17 @@ R39. If ARRAY has rank one, the result of
        OPERATION = OPERATION, DIM = 1
        [, ORDERED = ORDERED] ).
 
+     Example:
+
+     A = | 1 2 3 |
+         | 4 5 6 |
+     B = REDUCE_PREFIX_INCLUSIVE(A, ADD, DIM = 2)
+     ! B = | 1 3 6 |
+           | 4 9 15 |
 
 
 3.2.4 Result Value: REDUCE_PREFIX_EXCLUSIVE
 -------------------------------------------
-#TODO maybe define in terms of inclusive...
 
 R51. The result of REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION) is the
      exclusive prefix reduction (D03) of the sequence defined by
@@ -175,14 +180,13 @@ R51. The result of REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION) is the
 R55. If the ORDERED argument is present with the value true, then the
      reduction process (D01) is ordered.
 
-
-     R59. If ARRAY has rank one, the result of
+R59. If ARRAY has rank one, the result of
      REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, DIM = DIM [, INITIAL, ORDERED]) has a value equal to
      REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION[, INITIAL, ORDERED]).
 
      Otherwise, the result of REDUCE_PREFIX_EXCLUSIVE(ARRAY,
      OPERATION, DIM [, INITIAL, ORDERED]) is defined by the
-     semantics of R57 applied independently along each sequence of
+     semantic R51 applied independently along each sequence of
      ARRAY elements in dimension DIM. More specifically, the value of
      result elements (i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n) of
      REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, DIM = DIM [, INITIAL = INITIAL, ORDERED = ORDERED])
@@ -197,9 +201,7 @@ R55. If the ORDERED argument is present with the value true, then the
 
      A = | 1 2 3 4 |
          | 1 1 2 3 |
-     M = | T T F T |
-         | T T T T |
-     B = REDUCE_PREFIX_EXCLUSIVE(A, ADD, INITIAL=0, DIM=2, MASK=M)
-     ! B = | 0 1 3 3 |
+     B = REDUCE_PREFIX_EXCLUSIVE(A, ADD, INITIAL=0, DIM=2)
+     ! B = | 0 1 3 6 |
            | 0 1 2 4 |
 
