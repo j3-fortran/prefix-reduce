@@ -2,7 +2,7 @@ To: J3                                                     J3/25-XXX
 From: Brandon Cook & Dan Bonachea
 Subject:  Specifications and Syntax for Local Prefix Reduce Intrinsics
 Date: 2025-October-13
-References: J3/25-145r1, WG5/N-2249
+References: J3/25-145r1, 25-186r2, 25-195r1, WG5/N-2249
 
 1. Background
 =============
@@ -20,6 +20,11 @@ local prefix reduction variant, refining previous concepts based on
 community and WG5 feedback. By focusing exclusively on the local
 variant our aim is to allow consideration independent of the closely
 related but distinct collective subroutines.
+
+The corresponding sum prefix intrinsics syntax and specifications were
+passed in 25-186r2.txt in J3 meeting #237. This paper focuses on the
+general reduce prefix instrinsics for US20 and applies recommendations
+passed in 25-195r1.txt in J3 meeting #237.
 
 3. REDUCE PREFIX
 ================
