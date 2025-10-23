@@ -42,7 +42,7 @@ Syntax changes in this paper, relative to 25-177r1 are as follows:
    presence of the TEAM argument (25-127r1) and the COMPLETION
    argument (25-166r2).
 
-2. The IDENTITY argument to CO_REDUCE_PREFIX_EXCLUSIVE has been renamed to
+2. The INITIAL argument to CO_REDUCE_PREFIX_EXCLUSIVE has been renamed to
    INITIAL (as recommended by 25-195r1).
 
 3. Edits Relative to 25-007r1
@@ -59,13 +59,13 @@ operations across images."
 after the entry for CO_REDUCE add two new entries (with four forms each):
 
 "
-CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, IDENTITY [, STAT, ERRMSG]) or \
+CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, INITIAL [, STAT, ERRMSG]) or \
     C    Generalized exclusive prefix reduction across images.
-CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, IDENTITY, COMPLETION \
+CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, INITIAL, COMPLETION \
                             [, STAT, ERRMSG]) or
-CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, IDENTITY, TEAM \
+CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, INITIAL, TEAM \
                             [, STAT, ERRMSG]) or
-CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, IDENTITY, TEAM, COMPLETION \
+CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, INITIAL, TEAM, COMPLETION \
                             [, STAT, ERRMSG]) 
 "
 
@@ -107,12 +107,12 @@ CO_SUM_PREFIX_INCLUSIVE (A, TEAM, COMPLETION [, STAT, ERRMSG])
 after the specification of CO_REDUCE, add:
 
 16.9.?? \
-CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, IDENTITY [, STAT, ERRMSG]) or 
-CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, IDENTITY, COMPLETION \
+CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, INITIAL [, STAT, ERRMSG]) or 
+CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, INITIAL, COMPLETION \
                             [, STAT, ERRMSG]) or
-CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, IDENTITY, TEAM \
+CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, INITIAL, TEAM \
                             [, STAT, ERRMSG]) or
-CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, IDENTITY, TEAM, COMPLETION \
+CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, INITIAL, TEAM, COMPLETION \
                             [, STAT, ERRMSG]) 
 
 <<Description.>> Generalized exclusive prefix reduction across images.
@@ -136,8 +136,8 @@ A shall not be polymorphic. It shall not be of a type with an ultimate
   The computed value is assigned to A if no error condition
   occurs. Otherwise, A becomes undefined.
 
-IDENTITY shall be a scalar with the same declared type and type parameter
-         values as A. IDENTITY shall have the same value in corresponding
+INITIAL shall be a scalar with the same declared type and type parameter
+         values as A. INITIAL shall have the same value in corresponding
          references.
 
 OPERATION shall be a pure function with exactly two arguments; the result
@@ -154,7 +154,7 @@ OPERATION shall be a pure function with exactly two arguments; the result
   Each scalar input value provided by image i is referred to as A_i.
   The corresponding computed result value provided to image i is referred
   to as R_i.
-  S_i is initially the ordered list [IDENTITY, A_1, ..., A_{i-1}].
+  S_i is initially the ordered list [INITIAL, A_1, ..., A_{i-1}].
   Each iteration starts with a processor-dependent choice of item x from
   the list S_i.  Adjacent items x and y (where x preceeds y) are removed
   from the list and replaced with the value of OPERATION(x, y).  The
@@ -325,7 +325,7 @@ images evaluated the OPERATION for any given input element (and for any
 given image's result).
 
 A = [0, 0]
-IDENTITY = 0
+INITIAL = 0
 
 Other similar OPERATION functions can be crafted over a derived type to
 reveal arbitrary information about which images executed the operation and
@@ -412,7 +412,7 @@ Generalized prefix reduction across images.
 ----------
 
 CO_REDUCE_PREFIX_INCLUSIVE(A, OPERATION [, STAT, ERRMSG])
-CO_REDUCE_PREFIX_EXCLUSIVE(A, OPERATION, IDENTITY [, STAT, ERRMSG])
+CO_REDUCE_PREFIX_EXCLUSIVE(A, OPERATION, INITIAL [, STAT, ERRMSG])
 
 5.1 Specifications
 ------------------
@@ -438,10 +438,10 @@ R11. OPERATION shall implement a mathematically associative operation.
 R13. OPERATION shall be the same function on all images in
      corresponding references.
 
-R15. IDENTITY shall be a scalar with the same declared type and type
+R15. INITIAL shall be a scalar with the same declared type and type
      parameters as A.
 
-R17. IDENTITY shall have the same value in corresponding references.
+R17. INITIAL shall have the same value in corresponding references.
 
 R19. Definition of computed values assigned to A.
 
@@ -449,7 +449,7 @@ R19. Definition of computed values assigned to A.
      The computed value provided to image i is referred to as R_i.
      In the inclusive case S_i is the ordered list [A_1, ..., A_i].
      In the exclusive case S_i is the ordered list
-     [IDENTITY, A_1, ..., A_{i-1}].
+     [INITIAL, A_1, ..., A_{i-1}].
      The value of R_i is the result of applying OPERATION to adjacent
      items of S_i, without commutation, until a single item remains.
      If A is an array, OPERATION is applied elementwise.
