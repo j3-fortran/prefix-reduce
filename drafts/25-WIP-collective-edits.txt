@@ -40,23 +40,64 @@ CO_REDUCE_PREFIX_EXCLUSIVE perform collective prefix reduction
 operations across images."
 
 [383] In 16.7 Standard generic intrinsic procedures, Table 16.1,
-after the entry for CO_REDUCE add:
-"CO_REDUCE_PREFIX_EXCLUSIVE   (A, OPERATION, IDENTITY [, STAT, ERRMSG])
-    C    Generalized exclusive prefix reduction across images."
-"CO_REDUCE_PREFIX_INCLUSIVE   (A, OPERATION, [, STAT, ERRMSG])
-    C    Generalized inclusive prefix reduction across images."
+after the entry for CO_REDUCE add two new entries (with four forms each):
+
+"
+CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, IDENTITY [, STAT, ERRMSG]) or \
+    C    Generalized exclusive prefix reduction across images.
+CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, IDENTITY, COMPLETION \
+                            [, STAT, ERRMSG]) or
+CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, IDENTITY, TEAM \
+                            [, STAT, ERRMSG]) or
+CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, IDENTITY, TEAM, COMPLETION \
+                            [, STAT, ERRMSG]) 
+"
+
+and:
+
+"
+CO_REDUCE_PREFIX_INCLUSIVE (A, OPERATION [, STAT, ERRMSG]) or \
+    C    Generalized inclusive prefix reduction across images.
+CO_REDUCE_PREFIX_INCLUSIVE (A, OPERATION, COMPLETION \
+                            [, STAT, ERRMSG]) or
+CO_REDUCE_PREFIX_INCLUSIVE (A, OPERATION, TEAM \
+                            [, STAT, ERRMSG]) or
+CO_REDUCE_PREFIX_INCLUSIVE (A, OPERATION, TEAM, COMPLETION \
+                            [, STAT, ERRMSG]) 
+"
 
 [383] In 16.7 Standard generic intrinsic procedures, Table 16.1,
-after the entry for CO_SUM add:
-"CO_SUM_PREFIX_EXCLUSIVE   (A, [, STAT, ERRMSG])
-    C    Compute exclusive prefix sum across images."
-"CO_SUM_PREFIX_INCLUSIVE   (A, [, STAT, ERRMSG])
-    C    Compute inclusive prefix sum across images."
+after the entry for CO_SUM add two new entries (with four forms each):
+
+"
+CO_SUM_PREFIX_EXCLUSIVE (A, [, STAT, ERRMSG]) or \
+    C    Compute exclusive prefix sum across images.
+CO_SUM_PREFIX_EXCLUSIVE (A, COMPLETION [, STAT, ERRMSG]) or
+CO_SUM_PREFIX_EXCLUSIVE (A, TEAM [, STAT, ERRMSG]) or
+CO_SUM_PREFIX_EXCLUSIVE (A, TEAM, COMPLETION [, STAT, ERRMSG])
+"
+
+and:
+
+"
+CO_SUM_PREFIX_INCLUSIVE (A, [, STAT, ERRMSG]) or \
+    C    Compute inclusive prefix sum across images.
+CO_SUM_PREFIX_INCLUSIVE (A, COMPLETION [, STAT, ERRMSG]) or
+CO_SUM_PREFIX_INCLUSIVE (A, TEAM [, STAT, ERRMSG]) or
+CO_SUM_PREFIX_INCLUSIVE (A, TEAM, COMPLETION [, STAT, ERRMSG])
+"
 
 [411:20+] In 16.9 Specifications of the standard intrinsic proceedures,
 after the specification of CO_REDUCE, add:
 
-16.9.?? CO_REDUCE_PREFIX_EXCLUSIVE(A, OPERATION, IDENTITY [, STAT, ERRMSG])
+16.9.?? \
+CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, IDENTITY [, STAT, ERRMSG]) or 
+CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, IDENTITY, COMPLETION \
+                            [, STAT, ERRMSG]) or
+CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, IDENTITY, TEAM \
+                            [, STAT, ERRMSG]) or
+CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, IDENTITY, TEAM, COMPLETION \
+                            [, STAT, ERRMSG]) 
 
 <<Description.>> Generalized exclusive prefix reduction across images.
 
@@ -128,7 +169,10 @@ INCLUSIVE
 [412:4+] In 16.9 Specifications of the standard intrinsic proceedures,
 after the specification of CO_SUM, add:
 
-16.9.?? CO_SUM_PREFIX_EXCLUSIVE(A [, STAT, ERRMSG])
+16.9.?? CO_SUM_PREFIX_EXCLUSIVE (A [, STAT, ERRMSG]) or 
+        CO_SUM_PREFIX_EXCLUSIVE (A, COMPLETION [, STAT, ERRMSG]) or
+        CO_SUM_PREFIX_EXCLUSIVE (A, TEAM [, STAT, ERRMSG]) or
+        CO_SUM_PREFIX_EXCLUSIVE (A, TEAM, COMPLETION [, STAT, ERRMSG])
 
 <<Description.>> Compute exclusive prefix sum across images.
 
@@ -168,7 +212,10 @@ CO_SUM_PREFIX_EXCLUSIVE(A), the value of A is [0, 0] on image one, [1, 2]
 on image two, and [4, 6] on image three.
 
 
-16.9.?? CO_SUM_PREFIX_INCLUSIVE(A [, STAT, ERRMSG])
+16.9.?? CO_SUM_PREFIX_INCLUSIVE (A [, STAT, ERRMSG]) or 
+        CO_SUM_PREFIX_INCLUSIVE (A, COMPLETION [, STAT, ERRMSG]) or
+        CO_SUM_PREFIX_INCLUSIVE (A, TEAM [, STAT, ERRMSG]) or
+        CO_SUM_PREFIX_INCLUSIVE (A, TEAM, COMPLETION [, STAT, ERRMSG])
 
 <<Description.>> Compute inclusive prefix sum across images.
 
