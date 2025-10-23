@@ -2,7 +2,7 @@ To: J3                                                     J3/25-####
 From: Brandon Cook & Dan Bonachea
 Subject: Edits for US20 Collective Subroutines for Prefix Reductions
 Date: 2025-October-17
-References: 25-177r1, J3/25-144r1, J3/25-145r1, J3/25-007r1, WG5/N-2239
+References: 25-177r1, 25-144r1, 25-166r2, 25-195r1, 25-007r1, WG5/N-2239
 
 TODO
 1. DONE Changelog in Introduction
@@ -22,15 +22,31 @@ TODO
 The Fortran 202Y work list (WG5/N-2239) includes work item US20:
 "Add Intrinsic and collective subroutines for prefix operations"
 
-Paper J3/25-144r1 "Requirements for US20: Collective Subroutines for
+Paper 25-144r1 "Requirements for US20: Collective Subroutines for
 Prefix Operations" presents illustrative use cases and requirements
 for collective subroutines for prefix reduction.  That paper was
 passed at J3 meeting #236 in June 2025. Specifications and syntax for
 the collective subroutine variants of prefix reduction operations,
 25-177r1, was passed in the October 2025 meeting #237.
 
+2. Syntax Adjustments
+=====================
 
-2. Edits to J3/25-007r1:
+Since the passage of 25-177r1, subsequent papers 25-166r2 and 25-195r1
+have suggested additional syntax adjustments in order to maintain
+uniformity with closely related features.
+
+Syntax changes in this paper, relative to 25-177r1 are as follows:
+
+1. Additional forms have been introduced to accomodate the 
+   presence of the TEAM argument (25-127r1) and the COMPLETION
+   argument (25-166r2).
+
+2. The IDENTITY argument to CO_REDUCE_PREFIX_EXCLUSIVE has been renamed to
+   INITIAL (as recommended by 25-195r1).
+
+3. Edits Relative to 25-007r1
+=============================
 
 [xv] Add to "Intrinsic procedures" the sentences:
 
@@ -321,7 +337,7 @@ even in what order.
 
 All the intrinsics proposed in this paper are collective subroutines,
 and will be subject to all of the common requirements specified in
-section 16.6 of J3/25-007r1. So for example, they must be invoked
+section 16.6 of 25-007r1. So for example, they must be invoked
 collectively by the same statement on all active images in the current
 team, with arguments that meet specified constraints for corresponding
 references.
@@ -385,7 +401,7 @@ S15. The computed value is assigned to A if no error condition
 
 S17. The specifications for STAT and ERRMSG directly mirror the same
      arguments in the existing collective subroutines, and the semantics
-     of STAT and ERRMSG are described in section 16.6 of J3/25-007r1.
+     of STAT and ERRMSG are described in section 16.6 of 25-007r1.
 
 5. Collective CO_REDUCE_PREFIX subroutines
 ===========================================
@@ -442,6 +458,6 @@ R19. Definition of computed values assigned to A.
 R21. The specifications for STAT and ERRMSG directly mirror the same
      arguments in the existing collective subroutines, and the
      semantics of STAT and ERRMSG are described in section 16.6 of
-     J3/25-007r1.
+     25-007r1.
 
 ===END===
