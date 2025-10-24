@@ -103,6 +103,10 @@ R03. OPERATION shall be a pure function with exactly two arguments;
 R05. DIM shall be an integer scalar with a value in the range
      1 <= DIM <= n, where n is the rank of ARRAY.
 
+R09. INITIAL (only for REDUCE_PREFIX_EXCLUSIVE)
+     shall be scalar with the same declared type and type
+     parameter values as ARRAY.
+
 R15. ORDERED (optional) shall be a logical scalar.
 
 R16. NOTE: If OPERATION is not computationally associative,
