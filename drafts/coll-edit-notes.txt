@@ -1,9 +1,6 @@
 Collective subroutines edits TODO:
 
-* Add multiple forms as resolved in plenary, incorporating TEAM and        
-   COMPLETION in syntax                                                     
-      Leave placeholders for description of new arguments for r0               
-* Clone REDUCE_INCLUSIVE                                                   
+* Clone REDUCE_INCLUSIVE and adjust
 * Write REDUCE examples
 
 Examples:                                                                   

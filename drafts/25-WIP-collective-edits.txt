@@ -153,13 +153,19 @@ OPERATION shall be a pure function with exactly two arguments; the result
   process terminates when the list has only one item; this is the computed
   value of R_i.
 
+TEAM shall be a scalar of type TEAM_TYPE from the intrinsic module
+     ISO_FORTRAN_ENV. It is an INTENT(IN) argument.
+     
+COMPLETION shall be a scalar of type COMPLETION_TYPE from the intrinsic
+           module ISO_FORTRAN_ENV. It is an INTENT(INOUT) argument.
+ 
 STAT (optional) shall be a noncoindexed integer scalar with a decimal
      exponent range of at least four. It is an INTENT (OUT) argument.
 
 ERRMSG (optional) shall be a noncoindexed default character scalar. It
        is an INTENT (INOUT) argument.
 
-The semantics of STAT and ERRMSG are described in 16.6.
+The semantics of TEAM, COMPLETION, STAT and ERRMSG are described in 16.6.
 
 <<Example.>> 
  
@@ -196,6 +202,12 @@ A shall be of numeric type. It shall have the same shape, type, and
 
   The computed value is assigned to A if no error condition
   occurs. Otherwise, A becomes undefined.
+
+TEAM shall be a scalar of type TEAM_TYPE from the intrinsic module
+     ISO_FORTRAN_ENV. It is an INTENT(IN) argument.
+     
+COMPLETION shall be a scalar of type COMPLETION_TYPE from the intrinsic
+           module ISO_FORTRAN_ENV. It is an INTENT(INOUT) argument.
  
 STAT (optional) shall be a noncoindexed integer scalar with a decimal
      exponent range of at least four. It is an INTENT (OUT) argument.
@@ -203,7 +215,7 @@ STAT (optional) shall be a noncoindexed integer scalar with a decimal
 ERRMSG (optional) shall be a noncoindexed default character scalar. It
        is an INTENT (INOUT) argument.
 
-The semantics of STAT and ERRMSG are described in 16.6.
+The semantics of TEAM, COMPLETION, STAT and ERRMSG are described in 16.6.
 
 <<Example.>> If the number of images in the current team is three and
 the value of A is [1, 2] on image one, [3, 4] on image two, and [5, 6]
@@ -238,13 +250,19 @@ A shall be of numeric type. It shall have the same shape, type, and
   The computed value is assigned to A if no error condition
   occurs. Otherwise, A becomes undefined.
  
+TEAM shall be a scalar of type TEAM_TYPE from the intrinsic module
+     ISO_FORTRAN_ENV. It is an INTENT(IN) argument.
+     
+COMPLETION shall be a scalar of type COMPLETION_TYPE from the intrinsic
+           module ISO_FORTRAN_ENV. It is an INTENT(INOUT) argument.
+ 
 STAT (optional) shall be a noncoindexed integer scalar with a decimal
      exponent range of at least four. It is an INTENT (OUT) argument.
 
 ERRMSG (optional) shall be a noncoindexed default character scalar. It
        is an INTENT (INOUT) argument.
 
-The semantics of STAT and ERRMSG are described in 16.6.
+The semantics of TEAM, COMPLETION, STAT and ERRMSG are described in 16.6.
 
 <<Example.>> If the number of images in the current team is three and
 the value of A is [1, 2] on image one, [3, 4] on image two, and [5, 6]
