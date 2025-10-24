@@ -2,7 +2,7 @@ To: J3                                                     J3/25-###
 From: Brandon Cook & Dan Bonachea
 Subject: US20: Specs and Syntax for Local Prefix Reduce Intrinsics
 Date: 2025-October-23
-References: J3/25-145r1, 25-186r2, 25-195r1, WG5/N-2249
+References: 25-145r1, 25-186r2, 25-195r1, WG5/N-2249
 
 1. Background
 =============
@@ -10,7 +10,7 @@ References: J3/25-145r1, 25-186r2, 25-195r1, WG5/N-2249
 The Fortran 202Y work list (WG5/N-2249) includes work item US20:
 "Add Intrinsic and collective subroutines for prefix operations"
 
-Paper J3/25-145r1 "Requirements for US20: Local Prefix Operation
+Paper 25-145r1 "Requirements for US20: Local Prefix Operation
 Intrinsics" presents illustrative use cases and requirements for local
 prefix operation intrinsics. That paper was passed at J3 meeting #236
 in June 2025.
