@@ -27,8 +27,8 @@ uniformity with closely related features.
 Syntax changes in this paper, relative to 25-177r1 are as follows:
 
 1. Additional forms have been introduced to accommodate the 
-   presence of the TEAM argument (25-127r1) and the COMPLETION
-   argument (25-166r2).
+   presence of the TEAM argument (work item DIN1, 25-127r1) and the 
+   COMPLETION argument (work item US04, 25-166r2).
 
 2. The INITIAL argument to CO_REDUCE_PREFIX_EXCLUSIVE has been renamed to
    INITIAL (as recommended by 25-195r1).
