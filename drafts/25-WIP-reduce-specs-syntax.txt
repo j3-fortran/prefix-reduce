@@ -23,7 +23,7 @@ related but distinct collective subroutines.
 
 The corresponding sum prefix intrinsics syntax and specifications were
 passed in 25-186r2 at J3 meeting #237 in Oct 2025. This paper focuses on
-the general reduce prefix instrinsics for US20 and applies recommendations
+the general reduce prefix intrinsics for US20 and applies recommendations
 passed in 25-195r1 at J3 meeting #237 in Oct 2025.
 
 2. Syntax
