@@ -137,21 +137,21 @@ R31. The result of REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION) is the
 R35. If the ORDERED argument is present with the value true, then the
      reduction process (D01) is ordered, otherwise it is not.
 
-R39. If ARRAY has rank one, the result of
-     REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM = DIM [, ORDERED])
-     has a value equal to REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION[,
-     ORDERED]).
+R39. If ARRAY has rank one, then the result of
+     REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM [, ORDERED])
+     has a value equal to REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION
+     [, ORDERED]).
 
      Otherwise, the result of REDUCE_PREFIX_INCLUSIVE(ARRAY,
      OPERATION, DIM [, ORDERED]) is defined by the semantics of R31
      applied independently along each sequence of ARRAY elements in
      dimension DIM. More specifically, the value of result elements
      (i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n) of
-     REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM = DIM [, ORDERED =
-     ORDERED]) is equal to:
+     REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM [, ORDERED = ORDERED])
+     is equal to:
 
      REDUCE_PREFIX_INCLUSIVE(
-     ARRAY(i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n),
+       ARRAY(i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n),
        OPERATION = OPERATION, DIM = 1
        [, ORDERED = ORDERED] ).
 
@@ -186,23 +186,23 @@ R51. The result of REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION) is the
 R55. If the ORDERED argument is present with the value true, then the
      reduction process (D01) is ordered, otherwise it is not.
 
-R59. If ARRAY has rank one, the result of
-     REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, DIM = DIM [, INITIAL,
-     ORDERED]) has a value equal to REDUCE_PREFIX_EXCLUSIVE(ARRAY,
-     OPERATION[, INITIAL, ORDERED]).
+R59. If ARRAY has rank one, then the result of
+     REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, DIM [, INITIAL, ORDERED])
+     has a value equal to REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION 
+     [, INITIAL, ORDERED]).
 
      Otherwise, the result of REDUCE_PREFIX_EXCLUSIVE(ARRAY,
      OPERATION, DIM [, INITIAL, ORDERED]) is defined by the semantic
      R51 applied independently along each sequence of ARRAY elements
      in dimension DIM. More specifically, the value of result elements
      (i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n) of
-     REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, DIM = DIM [, INITIAL =
-     INITIAL, ORDERED = ORDERED]) is equal to:
+     REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, DIM
+     [, INITIAL = INITIAL, ORDERED = ORDERED]) is equal to:
 
      REDUCE_PREFIX_EXCLUSIVE(
-     ARRAY(i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n),
-        OPERATION = OPERATION, DIM = 1,
-        INITIAL = INITIAL, ORDERED = ORDERED] ).
+       ARRAY(i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n),
+       OPERATION = OPERATION, DIM = 1
+       [, INITIAL = INITIAL, ORDERED = ORDERED] ).
 
      Example:
 
