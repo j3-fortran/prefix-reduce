@@ -30,7 +30,7 @@ Syntax changes in this paper, relative to 25-177r1 are as follows:
    presence of the TEAM argument (work item DIN1, 25-127r1) and the
    COMPLETION argument (work item US04, 25-166r2).
 
-2. The INITIAL argument to CO_REDUCE_PREFIX_EXCLUSIVE has been renamed to
+2. The IDENTITY argument to CO_REDUCE_PREFIX_EXCLUSIVE has been renamed to
    INITIAL (as recommended by 25-195r1).
 
 3. Edits Relative to 25-007r1
@@ -146,6 +146,73 @@ OPERATION shall be a pure function with exactly two arguments; the result
   provided by image i is referred to as A_i.  The corresponding computed
   result value provided to image i is referred to as R_i.  S_i is initially
   the ordered list [INITIAL, A_1, ..., A_{i-1}].  Each iteration starts
+  with a processor-dependent choice of item x from the list S_i.  Adjacent
+  items x and y (where x precedes y) are removed from the list and replaced
+  with the value of OPERATION(x, y).  The process terminates when the list
+  has only one item; this is the computed value of R_i.
+
+TEAM shall be a scalar of type TEAM_TYPE from the intrinsic module
+     ISO_FORTRAN_ENV. It is an INTENT (IN) argument.
+
+COMPLETION shall be a scalar of type COMPLETION_TYPE from the intrinsic
+           module ISO_FORTRAN_ENV. It is an INTENT (INOUT) argument.
+
+STAT (optional) shall be a noncoindexed integer scalar with a decimal
+     exponent range of at least four. It is an INTENT (OUT) argument.
+
+ERRMSG (optional) shall be a noncoindexed default character scalar. It
+       is an INTENT (INOUT) argument.
+
+The semantics of TEAM, COMPLETION, STAT and ERRMSG are described in 16.6.
+
+<<Example.>>
+
+*** TODO ***
+
+16.9.?? \
+CO_REDUCE_PREFIX_INCLUSIVE (A, OPERATION [, STAT, ERRMSG]) or
+CO_REDUCE_PREFIX_INCLUSIVE (A, OPERATION, COMPLETION \
+                            [, STAT, ERRMSG]) or
+CO_REDUCE_PREFIX_INCLUSIVE (A, OPERATION, TEAM \
+                            [, STAT, ERRMSG]) or
+CO_REDUCE_PREFIX_INCLUSIVE (A, OPERATION, TEAM, COMPLETION \
+                            [, STAT, ERRMSG])
+
+<<Description.>> Generalized exclusive prefix reduction across images.
+
+<<Class.>> Collective subroutine.
+
+<<Arguments.>>
+
+A shall not be polymorphic. It shall not be of a type with an ultimate
+  component that is allocatable or a pointer. It shall have the same shape,
+  type, and type parameter values, in corresponding references. It shall
+  not be a coindexed object. It is an INTENT (INOUT) argument.
+
+  If A is scalar, the computed value provided to any given image is the
+  result of the exclusive prefix reduction operation described below.
+  If A is an array, each element of the computed value provided to any
+  given image is equal to the result of the exclusive prefix reduction
+  operation described below, as applied to corresponding elements of A in
+  corresponding references.
+
+  The computed value is assigned to A if no error condition occurs.
+  Otherwise, A becomes undefined.
+
+OPERATION shall be a pure function with exactly two arguments; the result
+          and each argument shall be a scalar, nonallocatable, noncoarray,
+          nonpointer, nonpolymorphic data object with the same type and
+          type parameter values as A. The arguments shall not be optional.
+          If one argument has the ASYNCHRONOUS, TARGET, or VALUE attribute,
+          the other shall have that attribute. OPERATION shall implement a
+          mathematically associative operation. OPERATION shall be the same
+          function on all images in corresponding references.
+
+  The computed value for an exclusive prefix reduction over a list of
+  values is the result of an iterative process.  Each scalar input value
+  provided by image i is referred to as A_i.  The corresponding computed
+  result value provided to image i is referred to as R_i.  S_i is
+  initially the ordered list [A_1, ..., A_i].  Each iteration starts
   with a processor-dependent choice of item x from the list S_i.  Adjacent
   items x and y (where x precedes y) are removed from the list and replaced
   with the value of OPERATION(x, y).  The process terminates when the list

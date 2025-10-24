@@ -1,6 +1,5 @@
 Collective subroutines edits TODO:
 
-* Clone REDUCE_INCLUSIVE and adjust
 * Write REDUCE examples
 
 Examples:                                                                   
