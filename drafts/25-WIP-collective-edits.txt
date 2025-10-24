@@ -36,6 +36,7 @@ Syntax changes in this paper, relative to 25-177r1 are as follows:
 3. Edits Relative to 25-007r1
 =============================
 
+-------------------------------------------------------------------------
 [xv] Add to "Intrinsic procedures" the sentences:
 
 "The new intrinsic subroutines CO_SUM_PREFIX_INCLUSIVE,
@@ -43,6 +44,7 @@ CO_SUM_PREFIX_EXCLUSIVE, CO_REDUCE_PREFIX_INCLUSIVE, and
 CO_REDUCE_PREFIX_EXCLUSIVE perform collective prefix reduction
 operations across images."
 
+-------------------------------------------------------------------------
 [383] In 16.7 Standard generic intrinsic procedures, Table 16.1,
 after the entry for CO_REDUCE add two new entries (with four forms each):
 
@@ -70,6 +72,7 @@ CO_REDUCE_PREFIX_INCLUSIVE (A, OPERATION, TEAM, COMPLETION \
                             [, STAT, ERRMSG]) 
 "
 
+-------------------------------------------------------------------------
 [383] In 16.7 Standard generic intrinsic procedures, Table 16.1,
 after the entry for CO_SUM add two new entries (with four forms each):
 
@@ -91,6 +94,7 @@ CO_SUM_PREFIX_INCLUSIVE (A, TEAM [, STAT, ERRMSG]) or
 CO_SUM_PREFIX_INCLUSIVE (A, TEAM, COMPLETION [, STAT, ERRMSG])
 "
 
+-------------------------------------------------------------------------
 [411:20+] In 16.9 Specifications of the standard intrinsic procedures,
 after the specification of CO_REDUCE, add:
 
@@ -161,6 +165,7 @@ The semantics of STAT and ERRMSG are described in 16.6.
  
 *** TODO ***
 
+-------------------------------------------------------------------------
 [412:4+] In 16.9 Specifications of the standard intrinsic procedures,
 after the specification of CO_SUM, add:
 
@@ -247,8 +252,7 @@ on image three, after executing the statement CALL
 CO_SUM_PREFIX_INCLUSIVE(A), the value of A is [1, 2] on image one, [4, 6]
 on image two, and [9, 12] on image three.
 
-
-
+-------------------------------------------------------------------------
 [596:19-20] In Annex A.2 Processor dependencies, replace the following
 line:
 
@@ -261,5 +265,7 @@ with the following line:
    CO_REDUCE_PREFIX_EXCLUSIVE (16.9.??), CO_REDUCE_PREFIX_INCLUSIVE
    (16.9.??), CO_SUM (16.9.58), CO_SUM_PREFIX_EXCLUSIVE (16.9.??) and
    CO_SUM_PREFIX_INCLUSIVE (16.9.??);"
+
+-------------------------------------------------------------------------
 
 ===END===
