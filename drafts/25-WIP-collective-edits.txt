@@ -268,9 +268,44 @@ ERRMSG (optional) shall be a noncoindexed default character scalar. It
 
 The semantics of TEAM, COMPLETION, STAT and ERRMSG are described in 16.6.
 
-<<Example.>>
+<<Example.>> This example uses a user-defined operation to produce a
+segmented prefix sum. A segmented prefix sum takes, as input, an ordered
+list of values and corresponding list of logicals, and the logicals
+delineate the various segments of the prefix sum. For example:
 
-*** TODO ***
+  values:   1   2   4   5   6   7   8   9
+  logicals: F   F   T   T   T   F   F   T
+  result:   1   3   4   9  15   7  15   9
+
+Note the segmented_sum operation used below is noncommutative.
+
+SUBROUTINE co_prefix_segment_sum(value, flag)
+  REAL, INTENT(INOUT) :: value
+  LOGICAL, INTENT(IN) :: flag
+
+  TYPE :: tuple
+    REAL :: value
+    LOGICAL :: flag
+  END TYPE
+  TYPE(tuple) :: t
+
+  t = tuple(value, flag)
+  CALL CO_REDUCE_PREFIX_INCLUSIVE(t, OPERATION=segmented_sum)
+  value = t%value
+
+CONTAINS
+  PURE FUNCTION segmented_sum(lhs,rhs) RESULT(sum)
+    TYPE(tuple), INTENT(IN) :: lhs,rhs
+    TYPE(tuple) :: sum
+
+    IF (lhs%flag .eqv. rhs%flag) THEN
+      sum%value = lhs%value + rhs%value
+    ELSE
+      sum%value = rhs%value
+    END IF
+    sum%flag = rhs%flag
+  END FUNCTION segmented_sum
+END SUBROUTINE co_prefix_segment_sum
 
 -------------------------------------------------------------------------
 [412:4+] In 16.9 Specifications of the standard intrinsic procedures,

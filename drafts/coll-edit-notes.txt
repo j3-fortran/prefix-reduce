@@ -1,15 +1,13 @@
 Collective subroutines edits TODO:
 
-* Write REDUCE examples
+* Find better ways to test the CO_REDUCE_PREFIX examples
 
 Examples:                                                                   
 EXCLUSIVE                                                                   
-  UNTESTED with multi-image
   MAXLOC over a derived type of real value and integer image ID             
     computes max value in prefix and the image that provided it             
 INCLUSIVE                                                                   
   derived type: value and boolean                                           
-    operation on boolean flag is XOR                                        
     illustrates segmented prefix reduction                                  
     MPI Example 6.24.    
        
