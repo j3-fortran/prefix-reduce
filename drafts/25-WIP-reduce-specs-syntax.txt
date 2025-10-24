@@ -91,8 +91,9 @@ D04. OPERATION=MULT
 
 R01. ARRAY shall be an array of any type.
 
-R03. OPERATION shall satisfy the same requirements specified for REDUCE:
-     that is, it shall be a pure function with exactly two arguments;
+R03. OPERATION shall satisfy the same static requirements specified for
+     the OPERATION argument to REDUCE, that is:
+     it shall be a pure function with exactly two arguments;
      each argument shall be a scalar, nonallocatable, noncoarray,
      nonpointer, nonpolymorphic, nonoptional dummy data object with
      the same declared type and type parameter values as ARRAY. If one
