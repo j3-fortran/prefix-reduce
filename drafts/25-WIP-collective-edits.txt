@@ -26,8 +26,8 @@ uniformity with closely related features.
 
 Syntax changes in this paper, relative to 25-177r1 are as follows:
 
-1. Additional forms have been introduced to accommodate the 
-   presence of the TEAM argument (work item DIN1, 25-127r1) and the 
+1. Additional forms have been introduced to accommodate the
+   presence of the TEAM argument (work item DIN1, 25-127r1) and the
    COMPLETION argument (work item US04, 25-166r2).
 
 2. The INITIAL argument to CO_REDUCE_PREFIX_EXCLUSIVE has been renamed to
@@ -56,7 +56,7 @@ CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, INITIAL, COMPLETION \
 CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, INITIAL, TEAM \
                             [, STAT, ERRMSG]) or
 CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, INITIAL, TEAM, COMPLETION \
-                            [, STAT, ERRMSG]) 
+                            [, STAT, ERRMSG])
 "
 
 and:
@@ -69,7 +69,7 @@ CO_REDUCE_PREFIX_INCLUSIVE (A, OPERATION, COMPLETION \
 CO_REDUCE_PREFIX_INCLUSIVE (A, OPERATION, TEAM \
                             [, STAT, ERRMSG]) or
 CO_REDUCE_PREFIX_INCLUSIVE (A, OPERATION, TEAM, COMPLETION \
-                            [, STAT, ERRMSG]) 
+                            [, STAT, ERRMSG])
 "
 
 -------------------------------------------------------------------------
@@ -99,13 +99,13 @@ CO_SUM_PREFIX_INCLUSIVE (A, TEAM, COMPLETION [, STAT, ERRMSG])
 after the specification of CO_REDUCE, add:
 
 16.9.?? \
-CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, INITIAL [, STAT, ERRMSG]) or 
+CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, INITIAL [, STAT, ERRMSG]) or
 CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, INITIAL, COMPLETION \
                             [, STAT, ERRMSG]) or
 CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, INITIAL, TEAM \
                             [, STAT, ERRMSG]) or
 CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, INITIAL, TEAM, COMPLETION \
-                            [, STAT, ERRMSG]) 
+                            [, STAT, ERRMSG])
 
 <<Description.>> Generalized exclusive prefix reduction across images.
 
@@ -125,8 +125,8 @@ A shall not be polymorphic. It shall not be of a type with an ultimate
   operation described below, as applied to corresponding elements of A in
   corresponding references.
 
-  The computed value is assigned to A if no error condition
-  occurs. Otherwise, A becomes undefined.
+  The computed value is assigned to A if no error condition occurs.
+  Otherwise, A becomes undefined.
 
 INITIAL shall be a scalar with the same declared type and type parameter
          values as A. INITIAL shall have the same value in corresponding
@@ -140,25 +140,23 @@ OPERATION shall be a pure function with exactly two arguments; the result
           the other shall have that attribute. OPERATION shall implement a
           mathematically associative operation. OPERATION shall be the same
           function on all images in corresponding references.
-          
+
   The computed value for an exclusive prefix reduction over a list of
-  values is the result of an iterative process. 
-  Each scalar input value provided by image i is referred to as A_i.
-  The corresponding computed result value provided to image i is referred
-  to as R_i.
-  S_i is initially the ordered list [INITIAL, A_1, ..., A_{i-1}].
-  Each iteration starts with a processor-dependent choice of item x from
-  the list S_i.  Adjacent items x and y (where x precedes y) are removed
-  from the list and replaced with the value of OPERATION(x, y).  The
-  process terminates when the list has only one item; this is the computed
-  value of R_i.
+  values is the result of an iterative process.  Each scalar input value
+  provided by image i is referred to as A_i.  The corresponding computed
+  result value provided to image i is referred to as R_i.  S_i is initially
+  the ordered list [INITIAL, A_1, ..., A_{i-1}].  Each iteration starts
+  with a processor-dependent choice of item x from the list S_i.  Adjacent
+  items x and y (where x precedes y) are removed from the list and replaced
+  with the value of OPERATION(x, y).  The process terminates when the list
+  has only one item; this is the computed value of R_i.
 
 TEAM shall be a scalar of type TEAM_TYPE from the intrinsic module
-     ISO_FORTRAN_ENV. It is an INTENT(IN) argument.
-     
+     ISO_FORTRAN_ENV. It is an INTENT (IN) argument.
+
 COMPLETION shall be a scalar of type COMPLETION_TYPE from the intrinsic
-           module ISO_FORTRAN_ENV. It is an INTENT(INOUT) argument.
- 
+           module ISO_FORTRAN_ENV. It is an INTENT (INOUT) argument.
+
 STAT (optional) shall be a noncoindexed integer scalar with a decimal
      exponent range of at least four. It is an INTENT (OUT) argument.
 
@@ -167,15 +165,15 @@ ERRMSG (optional) shall be a noncoindexed default character scalar. It
 
 The semantics of TEAM, COMPLETION, STAT and ERRMSG are described in 16.6.
 
-<<Example.>> 
- 
+<<Example.>>
+
 *** TODO ***
 
 -------------------------------------------------------------------------
 [412:4+] In 16.9 Specifications of the standard intrinsic procedures,
 after the specification of CO_SUM, add:
 
-16.9.?? CO_SUM_PREFIX_EXCLUSIVE (A [, STAT, ERRMSG]) or 
+16.9.?? CO_SUM_PREFIX_EXCLUSIVE (A [, STAT, ERRMSG]) or
         CO_SUM_PREFIX_EXCLUSIVE (A, COMPLETION [, STAT, ERRMSG]) or
         CO_SUM_PREFIX_EXCLUSIVE (A, TEAM [, STAT, ERRMSG]) or
         CO_SUM_PREFIX_EXCLUSIVE (A, TEAM, COMPLETION [, STAT, ERRMSG])
@@ -200,15 +198,15 @@ A shall be of numeric type. It shall have the same shape, type, and
   approximation to the sum of the values in corresponding elements of A in
   corresponding references provided by images 1 to (I-1).
 
-  The computed value is assigned to A if no error condition
-  occurs. Otherwise, A becomes undefined.
+  The computed value is assigned to A if no error condition occurs.
+  Otherwise, A becomes undefined.
 
 TEAM shall be a scalar of type TEAM_TYPE from the intrinsic module
-     ISO_FORTRAN_ENV. It is an INTENT(IN) argument.
-     
+     ISO_FORTRAN_ENV. It is an INTENT (IN) argument.
+
 COMPLETION shall be a scalar of type COMPLETION_TYPE from the intrinsic
-           module ISO_FORTRAN_ENV. It is an INTENT(INOUT) argument.
- 
+           module ISO_FORTRAN_ENV. It is an INTENT (INOUT) argument.
+
 STAT (optional) shall be a noncoindexed integer scalar with a decimal
      exponent range of at least four. It is an INTENT (OUT) argument.
 
@@ -224,7 +222,7 @@ CO_SUM_PREFIX_EXCLUSIVE(A), the value of A is [0, 0] on image one, [1, 2]
 on image two, and [4, 6] on image three.
 
 
-16.9.?? CO_SUM_PREFIX_INCLUSIVE (A [, STAT, ERRMSG]) or 
+16.9.?? CO_SUM_PREFIX_INCLUSIVE (A [, STAT, ERRMSG]) or
         CO_SUM_PREFIX_INCLUSIVE (A, COMPLETION [, STAT, ERRMSG]) or
         CO_SUM_PREFIX_INCLUSIVE (A, TEAM [, STAT, ERRMSG]) or
         CO_SUM_PREFIX_INCLUSIVE (A, TEAM, COMPLETION [, STAT, ERRMSG])
@@ -247,15 +245,15 @@ A shall be of numeric type. It shall have the same shape, type, and
   of the values in corresponding elements of A in corresponding references
   provided by images 1 to I.
 
-  The computed value is assigned to A if no error condition
-  occurs. Otherwise, A becomes undefined.
- 
+  The computed value is assigned to A if no error condition occurs.
+  Otherwise, A becomes undefined.
+
 TEAM shall be a scalar of type TEAM_TYPE from the intrinsic module
-     ISO_FORTRAN_ENV. It is an INTENT(IN) argument.
-     
+     ISO_FORTRAN_ENV. It is an INTENT (IN) argument.
+
 COMPLETION shall be a scalar of type COMPLETION_TYPE from the intrinsic
-           module ISO_FORTRAN_ENV. It is an INTENT(INOUT) argument.
- 
+           module ISO_FORTRAN_ENV. It is an INTENT (INOUT) argument.
+
 STAT (optional) shall be a noncoindexed integer scalar with a decimal
      exponent range of at least four. It is an INTENT (OUT) argument.
 
