@@ -33,6 +33,10 @@ Syntax changes in this paper, relative to 25-177r1 are as follows:
 2. The IDENTITY argument to CO_REDUCE_PREFIX_EXCLUSIVE has been renamed to
    INITIAL (as recommended by 25-195r1).
 
+Note that a combined edits paper for orthogonal work-items DIN1 and US04 is
+still forthcoming, which will provide the edits in section 16.6 that are
+cross-referenced by the edits in this paper.
+
 3. Edits Relative to 25-007r1
 =============================
 
