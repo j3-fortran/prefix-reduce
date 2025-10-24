@@ -135,7 +135,7 @@ R31. The result of REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION) is the
      ! B = | 1 2 6 |
 
 R35. If the ORDERED argument is present with the value true, then the
-     reduction process (D01) is ordered.
+     reduction process (D01) is ordered, otherwise it is not.
 
 R39. If ARRAY has rank one, the result of
      REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM = DIM [, ORDERED])
@@ -184,7 +184,7 @@ R51. The result of REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION) is the
      ! B = | 2 6 12 |
 
 R55. If the ORDERED argument is present with the value true, then the
-     reduction process (D01) is ordered.
+     reduction process (D01) is ordered, otherwise it is not.
 
 R59. If ARRAY has rank one, the result of
      REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, DIM = DIM [, INITIAL,
