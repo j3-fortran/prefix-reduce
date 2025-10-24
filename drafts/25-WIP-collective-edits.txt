@@ -165,9 +165,41 @@ ERRMSG (optional) shall be a noncoindexed default character scalar. It
 
 The semantics of TEAM, COMPLETION, STAT and ERRMSG are described in 16.6.
 
-<<Example.>>
+<<Example.>> The subroutine below demonstrates how to use
+CO_REDUCE_PREFIX_EXCLUSIVE to perform a collective exclusive prefix
+reduction analogous to the intrinsic function MAXLOC:
 
-*** TODO ***
+SUBROUTINE co_prefix_maxloc(value, image)
+  USE, INTRINSIC :: IEEE_ARITHMETIC, ONLY: IEEE_VALUE, IEEE_NEGATIVE_INF
+  REAL, INTENT(INOUT) :: value
+  INTEGER, INTENT(OUT) :: image
+
+  TYPE :: tuple
+    REAL :: value
+    INTEGER :: image
+  END TYPE
+  TYPE(tuple) :: t
+
+  t = tuple(value, THIS_IMAGE())
+  CALL CO_REDUCE_PREFIX_EXCLUSIVE(t, find_maxloc, &
+                    INITIAL=tuple{IEEE_VALUE(1.0,IEEE_NEGATIVE_INF), 0})
+  value = t%value ! The largest value provided by a prior image,
+  image = t%image ! .. and the index of that image,
+
+CONTAINS
+  PURE FUNCTION find_maxloc(lhs,rhs) RESULT(maxloc)
+    TYPE(tuple), INTENT(IN) :: lhs,rhs
+    TYPE(tuple) :: maxloc
+    IF (lhs%value > rhs%value) THEN
+      maxloc%value = lhs%value
+      maxloc%image = lhs%image
+    ELSE
+      maxloc%value = rhs%value
+      maxloc%image = rhs%image
+    END IF
+  END FUNCTION find_maxloc
+END SUBROUTINE co_prefix_maxloc
+
 
 16.9.?? \
 CO_REDUCE_PREFIX_INCLUSIVE (A, OPERATION [, STAT, ERRMSG]) or

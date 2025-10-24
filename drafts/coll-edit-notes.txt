@@ -4,6 +4,7 @@ Collective subroutines edits TODO:
 
 Examples:                                                                   
 EXCLUSIVE                                                                   
+  UNTESTED with multi-image
   MAXLOC over a derived type of real value and integer image ID             
     computes max value in prefix and the image that provided it             
 INCLUSIVE                                                                   
