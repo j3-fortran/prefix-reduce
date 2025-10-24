@@ -62,6 +62,8 @@ D01. Generalized noncommutative reduction
 
      Steps 1-3 are repeated until a single result value is obtained.
 
+     NOTE: This matches the iterative process specified for REDUCE.
+
 D02. Inclusive prefix reduction
 
      The inclusive prefix reduction of a sequence S with n items
@@ -89,16 +91,20 @@ D04. OPERATION=MULT
 
 R01. ARRAY shall be an array of any type.
 
-R03. OPERATION shall be a pure function with exactly two arguments;
+R03. OPERATION shall satisfy the same static requirements specified for
+     the OPERATION argument to REDUCE, that is:
+     it shall be a pure function with exactly two arguments;
      each argument shall be a scalar, nonallocatable, noncoarray,
      nonpointer, nonpolymorphic, nonoptional dummy data object with
      the same declared type and type parameter values as ARRAY. If one
      argument has the ASYNCHRONOUS, TARGET, or VALUE attribute, the
      other shall have that attribute. Its result shall be a
      nonpolymorphic scalar and have the same declared type and type
-     parameter values as ARRAY. If ORDERED is absent or false, then
-     OPERATION should implement a mathematically associative
-     operation. In any case, OPERATION need not be commutative.
+     parameter values as ARRAY.
+
+R04. If ORDERED is absent or false, then OPERATION should implement a
+     mathematically associative operation. In any case, OPERATION need
+     not be commutative.
 
 R05. DIM shall be an integer scalar with a value in the range
      1 <= DIM <= n, where n is the rank of ARRAY.
@@ -166,10 +172,10 @@ R39. If ARRAY has rank one, then the result of
 3.3.2 Result Value: REDUCE_PREFIX_EXCLUSIVE
 -------------------------------------------
 
-R51. The result of REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION) is the
-     exclusive prefix reduction (D03) of the sequence defined by
-     elements of ARRAY in array element order, with the result
-     sequence provided in array element order.
+R51. The result of REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION. INITIAL) is
+     the exclusive prefix reduction (D03), with initial value INITIAL, of
+     the sequence defined by elements of ARRAY in array element order, with
+     the result sequence provided in array element order.
 
      Example:
 
@@ -187,22 +193,22 @@ R55. If the ORDERED argument is present with the value true, then the
      reduction process (D01) is ordered, otherwise it is not.
 
 R59. If ARRAY has rank one, then the result of
-     REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, DIM [, INITIAL, ORDERED])
-     has a value equal to REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION
-     [, INITIAL, ORDERED]).
+     REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, DIM, INITIAL [, ORDERED])
+     has a value equal to REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION,
+     INITIAL [, ORDERED]).
 
      Otherwise, the result of REDUCE_PREFIX_EXCLUSIVE(ARRAY,
-     OPERATION, DIM [, INITIAL, ORDERED]) is defined by the semantic
+     OPERATION, DIM, INITIAL [, ORDERED]) is defined by the semantic
      R51 applied independently along each sequence of ARRAY elements
      in dimension DIM. More specifically, the value of result elements
      (i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n) of
-     REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, DIM
-     [, INITIAL = INITIAL, ORDERED = ORDERED]) is equal to:
+     REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, DIM, INITIAL = INITIAL
+     [, ORDERED = ORDERED]) is equal to:
 
      REDUCE_PREFIX_EXCLUSIVE(
        ARRAY(i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n),
-       OPERATION = OPERATION, DIM = 1
-       [, INITIAL = INITIAL, ORDERED = ORDERED] ).
+       OPERATION = OPERATION, DIM = 1, INITIAL = INITIAL
+       [, ORDERED = ORDERED] ).
 
      Example:
 
