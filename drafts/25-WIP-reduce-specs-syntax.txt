@@ -89,16 +89,19 @@ D04. OPERATION=MULT
 
 R01. ARRAY shall be an array of any type.
 
-R03. OPERATION shall be a pure function with exactly two arguments;
+R03. OPERATION shall satisfy the same requirements specified for REDUCE:
+     that is, it shall be a pure function with exactly two arguments;
      each argument shall be a scalar, nonallocatable, noncoarray,
      nonpointer, nonpolymorphic, nonoptional dummy data object with
      the same declared type and type parameter values as ARRAY. If one
      argument has the ASYNCHRONOUS, TARGET, or VALUE attribute, the
      other shall have that attribute. Its result shall be a
      nonpolymorphic scalar and have the same declared type and type
-     parameter values as ARRAY. If ORDERED is absent or false, then
-     OPERATION should implement a mathematically associative
-     operation. In any case, OPERATION need not be commutative.
+     parameter values as ARRAY.
+
+R04. If ORDERED is absent or false, then OPERATION should implement a
+     mathematically associative operation. In any case, OPERATION need
+     not be commutative.
 
 R05. DIM shall be an integer scalar with a value in the range
      1 <= DIM <= n, where n is the rank of ARRAY.
