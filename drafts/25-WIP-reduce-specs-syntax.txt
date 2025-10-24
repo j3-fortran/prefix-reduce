@@ -100,15 +100,15 @@ R03. OPERATION shall be a pure function with exactly two arguments;
      OPERATION should implement a mathematically associative
      operation. In any case, OPERATION need not be commutative.
 
-R04. NOTE: If OPERATION is not computationally associative,
-     REDUCE_PREFIX_*CLUSIVE without ORDERED=.TRUE. with the same
-     argument values might not always produce the same result, as the
-     processor can apply the associative law to the evaluation.
-
 R05. DIM shall be an integer scalar with a value in the range
      1 <= DIM <= n, where n is the rank of ARRAY.
 
 R15. ORDERED (optional) shall be a logical scalar.
+
+R16. NOTE: If OPERATION is not computationally associative,
+     REDUCE_PREFIX_*CLUSIVE without ORDERED=.TRUE. with the same
+     argument values might not always produce the same result, as the
+     processor can apply the associative law to the evaluation.
 
 3.3 Result Characteristics
 --------------------------
