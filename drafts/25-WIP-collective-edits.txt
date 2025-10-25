@@ -263,10 +263,11 @@ ERRMSG (optional) shall be a noncoindexed default character scalar. It
 
 The semantics of TEAM, COMPLETION, STAT and ERRMSG are described in 16.6.
 
-<<Example.>> This example uses a user-defined operation to produce a
-segmented prefix sum. A segmented prefix sum takes, as input, an ordered
-list of values and corresponding list of logicals, and the logicals
-delineate the various segments of the prefix sum. For example:
+<<Example.>> The subroutine below demonstrates how to use
+CO_REDUCE_PREFIX_INCLUSIVE to compute a collective segmented prefix sum.
+A segmented prefix sum takes, as input, an ordered list of values and
+corresponding list of logicals, and the logicals delineate the various
+segments of the prefix sum. For example:
 
   values:   1   2   4   5   6   7   8   9
   logicals: F   F   T   T   T   F   F   T
