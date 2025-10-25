@@ -2,7 +2,8 @@ To: J3                                                     J3/25-####
 From: Brandon Cook & Dan Bonachea
 Subject: Edits for US20 Collective Subroutines for Prefix Reductions
 Date: 2025-October-17
-References: 25-177r1, 25-144r1, 25-166r2, 25-195r1, 25-007r1, WG5/N-2239
+References: 25-144r1, 25-177r1, 25-166r2, 25-195r1, 25-127r1,
+            25-007r1, WG5/N-2239
 
 1. Background
 =============
