@@ -185,8 +185,8 @@ SUBROUTINE co_prefix_maxloc(value, image)
   TYPE(tuple) :: t
 
   t = tuple(value, THIS_IMAGE())
-  CALL CO_REDUCE_PREFIX_EXCLUSIVE(t, find_maxloc, &
-                    INITIAL=tuple{IEEE_VALUE(1.0,IEEE_NEGATIVE_INF), 0})
+  CALL CO_REDUCE_PREFIX_EXCLUSIVE(t, OPERATION=find_maxloc, &
+                    INITIAL=tuple(IEEE_VALUE(1.0,IEEE_NEGATIVE_INF), 0) )
   value = t%value ! The largest value provided by a prior image,
   image = t%image ! .. and the index of that image,
 
@@ -194,13 +194,8 @@ CONTAINS
   PURE FUNCTION find_maxloc(lhs,rhs) RESULT(maxloc)
     TYPE(tuple), INTENT(IN) :: lhs,rhs
     TYPE(tuple) :: maxloc
-    IF (lhs%value > rhs%value) THEN
-      maxloc%value = lhs%value
-      maxloc%image = lhs%image
-    ELSE
-      maxloc%value = rhs%value
-      maxloc%image = rhs%image
-    END IF
+
+    maxloc = MERGE(lhs, rhs, lhs%value > rhs%value)
   END FUNCTION find_maxloc
 END SUBROUTINE co_prefix_maxloc
 
