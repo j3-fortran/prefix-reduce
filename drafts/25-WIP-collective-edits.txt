@@ -210,7 +210,7 @@ CO_REDUCE_PREFIX_INCLUSIVE (A, OPERATION, TEAM \
 CO_REDUCE_PREFIX_INCLUSIVE (A, OPERATION, TEAM, COMPLETION \
                             [, STAT, ERRMSG])
 
-<<Description.>> Generalized exclusive prefix reduction across images.
+<<Description.>> Generalized inclusive prefix reduction across images.
 
 <<Class.>> Collective subroutine.
 
@@ -222,9 +222,9 @@ A shall not be polymorphic. It shall not be of a type with an ultimate
   not be a coindexed object. It is an INTENT (INOUT) argument.
 
   If A is scalar, the computed value provided to any given image is the
-  result of the exclusive prefix reduction operation described below.
+  result of the inclusive prefix reduction operation described below.
   If A is an array, each element of the computed value provided to any
-  given image is equal to the result of the exclusive prefix reduction
+  given image is equal to the result of the inclusive prefix reduction
   operation described below, as applied to corresponding elements of A in
   corresponding references.
 
@@ -240,7 +240,7 @@ OPERATION shall be a pure function with exactly two arguments; the result
           mathematically associative operation. OPERATION shall be the same
           function on all images in corresponding references.
 
-  The computed value for an exclusive prefix reduction over a list of
+  The computed value for an inclusive prefix reduction over a list of
   values is the result of an iterative process.  Each scalar input value
   provided by image i is referred to as A_i.  The corresponding computed
   result value provided to image i is referred to as R_i.  S_i is
