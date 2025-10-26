@@ -327,14 +327,14 @@ A shall be of numeric type. It shall have the same shape, type, and
 
   The computed value provided to image one in the specified team is equal
   to the value zero.  If A is scalar, the computed value provided to any
-  given image I in the specified team (with I greater than one) is equal to
+  given image i in the specified team (with i greater than one) is equal to
   a processor-dependent approximation to the sum of the values of A in
-  corresponding references provided by images 1 to (I-1) in the specified
+  corresponding references provided by images 1 to (i-1) in the specified
   team.  If A is an array, each element of the computed value provided to
-  any given image I in the specified team (with I greater than one) is
+  any given image i in the specified team (with i greater than one) is
   equal to a processor-dependent approximation to the sum of the values in
   corresponding elements of A in corresponding references provided by
-  images 1 to (I-1) in the specified team.
+  images 1 to (i-1) in the specified team.
 
   The computed value is assigned to A if no error condition occurs.
   Otherwise, A becomes undefined.
@@ -375,14 +375,14 @@ A shall be of numeric type. It shall have the same shape, type, and
   type parameter values, in corresponding references. It shall not be
   a coindexed object. It is an INTENT (INOUT) argument.
 
-  If A is scalar, the computed value provided to any given image I in the
+  If A is scalar, the computed value provided to any given image i in the
   specified team is equal to a processor-dependent approximation to the sum
-  of the values of A in corresponding references provided by images 1 to I
+  of the values of A in corresponding references provided by images 1 to i
   in the specified team.  If A is an array, each element of the computed
-  value provided to any given image I in the specified team is equal to a
+  value provided to any given image i in the specified team is equal to a
   processor-dependent approximation to the sum of the values in
   corresponding elements of A in corresponding references provided by
-  images 1 to I in the specified team.
+  images 1 to i in the specified team.
 
   The computed value is assigned to A if no error condition occurs.
   Otherwise, A becomes undefined.
