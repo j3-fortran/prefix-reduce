@@ -1,0 +1,46 @@
+Collective subroutines edits TODO:
+
+* Find better ways to test the CO_REDUCE_PREFIX examples
+
+Examples:                                                                   
+EXCLUSIVE                                                                   
+  MAXLOC over a derived type of real value and integer image ID             
+    computes max value in prefix and the image that provided it             
+INCLUSIVE                                                                   
+  derived type: value and boolean                                           
+    illustrates segmented prefix reduction                                  
+    MPI Example 6.24.    
+       
+============================================
+
+Pathological example:
+
+pure function OPERATION(x,y) result(r)
+  INTEGER :: x, y, r
+  r = MAX(a,b,THIS_IMAGE())
+end function
+
+This OPERATION is a pure function as defined in F23 15.7 and 16.1. 
+It is associative and commutative.
+It also satisfies all the other requirements for the OPERATION argument to
+CO_REDUCE or CO_REDUCE_PREFIX_* with A of integer type.
+
+Passing this OPERATION along with the following arguments to either CO_REDUCE
+or CO_REDUCE_PREFIX_* will reveal some information about which images evaluated
+the OPERATION for any given input element (and for any given image's result).
+
+A = [0, 0]
+INITIAL = 0
+
+Other similar OPERATION functions can be crafted over a derived type to reveal
+arbitrary information about which images executed the operation and even in
+what order.
+
+Potential resolution for all CO_REDUCE intrinsics:
+"OPERATION shall not depend on the value of THIS_IMAGE()."
+
+
+============================================
+
+
+
