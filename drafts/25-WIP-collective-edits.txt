@@ -23,7 +23,7 @@ the collective subroutine variants of prefix reduction operations,
 
 Since the passage of 25-177r1, subsequent papers 25-166r2 and 25-195r1
 have suggested additional syntax adjustments in order to maintain
-uniformity with closely related features.
+uniformity with closely related features under concurrent development.
 
 Syntax changes in this paper, relative to 25-177r1 are as follows:
 
