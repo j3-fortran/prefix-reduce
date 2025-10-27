@@ -160,8 +160,9 @@ OPERATION shall be a pure function with exactly two arguments; the result
 TEAM shall be a scalar of type TEAM_TYPE from the intrinsic module
      ISO_FORTRAN_ENV. It is an INTENT (IN) argument.
 
-COMPLETION shall be a scalar of type COMPLETION_TYPE from the intrinsic
-           module ISO_FORTRAN_ENV. It is an INTENT (INOUT) argument.
+COMPLETION shall be a noncoindexed scalar of type COMPLETION_TYPE from the
+           intrinsic module ISO_FORTRAN_ENV. It is an INTENT (INOUT)
+           argument.
 
 STAT (optional) shall be a noncoindexed integer scalar with a decimal
      exponent range of at least four. It is an INTENT (OUT) argument.
@@ -255,8 +256,9 @@ OPERATION shall be a pure function with exactly two arguments; the result
 TEAM shall be a scalar of type TEAM_TYPE from the intrinsic module
      ISO_FORTRAN_ENV. It is an INTENT (IN) argument.
 
-COMPLETION shall be a scalar of type COMPLETION_TYPE from the intrinsic
-           module ISO_FORTRAN_ENV. It is an INTENT (INOUT) argument.
+COMPLETION shall be a noncoindexed scalar of type COMPLETION_TYPE from the
+           intrinsic module ISO_FORTRAN_ENV. It is an INTENT (INOUT)
+           argument.
 
 STAT (optional) shall be a noncoindexed integer scalar with a decimal
      exponent range of at least four. It is an INTENT (OUT) argument.
@@ -342,8 +344,9 @@ A shall be of numeric type. It shall have the same shape, type, and
 TEAM shall be a scalar of type TEAM_TYPE from the intrinsic module
      ISO_FORTRAN_ENV. It is an INTENT (IN) argument.
 
-COMPLETION shall be a scalar of type COMPLETION_TYPE from the intrinsic
-           module ISO_FORTRAN_ENV. It is an INTENT (INOUT) argument.
+COMPLETION shall be a noncoindexed scalar of type COMPLETION_TYPE from the
+           intrinsic module ISO_FORTRAN_ENV. It is an INTENT (INOUT)
+           argument.
 
 STAT (optional) shall be a noncoindexed integer scalar with a decimal
      exponent range of at least four. It is an INTENT (OUT) argument.
@@ -390,8 +393,9 @@ A shall be of numeric type. It shall have the same shape, type, and
 TEAM shall be a scalar of type TEAM_TYPE from the intrinsic module
      ISO_FORTRAN_ENV. It is an INTENT (IN) argument.
 
-COMPLETION shall be a scalar of type COMPLETION_TYPE from the intrinsic
-           module ISO_FORTRAN_ENV. It is an INTENT (INOUT) argument.
+COMPLETION shall be a noncoindexed scalar of type COMPLETION_TYPE from the
+           intrinsic module ISO_FORTRAN_ENV. It is an INTENT (INOUT)
+           argument.
 
 STAT (optional) shall be a noncoindexed integer scalar with a decimal
      exponent range of at least four. It is an INTENT (OUT) argument.
