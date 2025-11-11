@@ -119,8 +119,8 @@ CO_REDUCE_PREFIX_EXCLUSIVE (A, OPERATION, INITIAL, TEAM, COMPLETION \
 <<Arguments.>>
 
 A shall not be polymorphic. It shall not be of a type with an ultimate
-  component that is allocatable or a pointer. It shall have the same shape,
-  type, and type parameter values, in corresponding references. It shall
+  component that is allocatable or a pointer. It shall have the same shape
+  and type parameter values in corresponding references. It shall
   not be a coindexed object. It is an INTENT (INOUT) argument.
 
   If A is scalar, the computed value provided to any given image is the
@@ -219,8 +219,8 @@ CO_REDUCE_PREFIX_INCLUSIVE (A, OPERATION, TEAM, COMPLETION \
 <<Arguments.>>
 
 A shall not be polymorphic. It shall not be of a type with an ultimate
-  component that is allocatable or a pointer. It shall have the same shape,
-  type, and type parameter values, in corresponding references. It shall
+  component that is allocatable or a pointer. It shall have the same shape
+  and type parameter values in corresponding references. It shall
   not be a coindexed object. It is an INTENT (INOUT) argument.
 
   If A is scalar, the computed value provided to any given image is the
