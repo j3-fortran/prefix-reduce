@@ -133,9 +133,9 @@ A shall not be polymorphic. It shall not be of a type with an ultimate
   The computed value is assigned to A if no error condition occurs.
   Otherwise, A becomes undefined.
 
-INITIAL shall be a scalar with the same declared type and type parameter
-        values as A. It is an INTENT (IN) argument. INITIAL shall have the
-        same value in corresponding references.
+INITIAL shall be a nonpolymorphic scalar with the same type and type
+        parameter values as A. It is an INTENT (IN) argument. INITIAL shall
+        have the same value in corresponding references.
 
 OPERATION shall be a pure function with exactly two arguments; the result
           and each argument shall be a scalar, nonallocatable, noncoarray,
