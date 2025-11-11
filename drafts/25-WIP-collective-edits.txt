@@ -2,7 +2,7 @@ To: J3                                                     J3/25-199r1
 From: Brandon Cook & Dan Bonachea
 Subject: Edits for US20 Collective Subroutines for Prefix Reductions
 Date: 2025-October-27
-References: 25-144r1, 25-177r1, 25-166r2, 25-195r1, 25-127r1, 25-202r1,
+References: 25-144r1, 25-177r1, 25-166r2, 25-195r1, 25-127r1, 25-202r2,
             25-007r1, WG5/N-2239
 
 1. Background
@@ -34,7 +34,7 @@ Syntax changes in this paper, relative to 25-177r1 are as follows:
 2. The IDENTITY argument to CO_REDUCE_PREFIX_EXCLUSIVE has been renamed to
    INITIAL (as recommended by 25-195r1).
 
-Note that paper 25-202r1 provides combined edits for orthogonal work-items
+Note that paper 25-202r2 provides combined edits for orthogonal work-items
 DIN1 and US04, and also supplies the edits to section 16.6 that are
 cross-referenced by the edits in this paper.
 
