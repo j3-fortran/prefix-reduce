@@ -1,0 +1,119 @@
+To: J3                                                     J3/25-###
+From: Brandon Cook & Dan Bonachea
+Subject: US20: Edits for Local Prefix Reduce Intrinsics
+Date: 2025-December-##
+References: 25-145r1, 25-186r2, 25-195r1, WG5/N-2249, 25-196r1
+
+1. Background
+=============
+
+The Fortran 202Y work list (WG5/N-2249) includes work item US20:
+"Add Intrinsic and collective subroutines for prefix operations"
+
+Paper 25-145r1 "Requirements for US20: Local Prefix Operation
+Intrinsics" presents illustrative use cases and requirements for local
+prefix operation intrinsics. That paper was passed at J3 meeting #236
+in June 2025.
+
+The corresponding sum prefix intrinsics syntax and specifications were
+passed in 25-186r2 at J3 meeting #237 in Oct 2025.  The general reduce
+prefix instrinsics syntax and specifications were passed in 25-196r1
+at J3 meeting #237 incorporate recommendations of 25-195r1.
+
+2. Edits Relative to 25-007r1
+=============================
+
+-------------------------------------------------------------------------
+[xv] Add to "Intrinsic procedures" the sentences:
+
+"The new instrinsic procedures REDUCE_PREFIX_EXCLUSIVE,
+REDUCE_PREFIX_INCLUSIVE, SUM_PREFIX_EXCLUSIVE, SUM_PREFIX_INCLUSIVE,
+perform prefix reduction operations."
+
+-------------------------------------------------------------------------
+
+[385] In 16.7 Standard generic intrinsic procedures, Table 16.1,
+after the entry for REDUCE add two new entries (with 2 forms each):
+
+"
+REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL [, ORDERED]) or
+    T    Exclusive prefix reduction
+REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
+"
+
+and:
+
+"
+REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION [, ORDERED]) or
+    T    Inclusive prefix reduction
+REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM [, ORDERED])
+"
+
+-------------------------------------------------------------------------
+
+[385] In 16.7 Standard generic intrinsic procedures, Table 16.1,
+after the entry for SUM add two new entries (with 2 forms each):
+
+"
+SUM_PREFIX_EXCLUSIVE(ARRAY, [, MASK]) or \
+    T    Exclusive prefix sum
+SUM_PREFIX_EXCLUSIVE(ARRAY, DIM [, MASK])
+"
+
+and:
+
+"
+SUM_PREFIX_INCLUSIVE(ARRAY [, MASK]) or \
+    T    Inclusive prefix sum
+SUM_PREFIX_INCLUSIVE(ARRAY, DIM [, MASK])
+"
+
+-------------------------------------------------------------------------
+
+[469:21-] In 16.9 Specifications of the standard intrinsic procedures,
+after the specification of REDUCE, add:
+
+16.9.173a \
+REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL [, ORDERED]) or
+REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
+
+<<Description.>>
+<<Class.>>
+<<Arguments.>>
+<<Example.>>
+
+16.9.173b \
+REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, INITIAL [, ORDERED]) or
+REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
+
+<<Description.>>
+<<Class.>>
+<<Arguments.>>
+<<Example.>>
+
+-------------------------------------------------------------------------
+
+[482:26-] In 16.9 Specifications of the standard intrinsic procedures,
+after the specification of SUM, add:
+
+16.9.201a \
+SUM_PREFIX_EXCLUSIVE(ARRAY, [, MASK]) or \
+SUM_PREFIX_EXCLUSIVE(ARRAY, DIM [, MASK])
+
+<<Description.>>
+<<Class.>>
+<<Arguments.>>
+<<Example.>>
+
+16.9.201b \
+SUM_PREFIX_INCLUSIVE(ARRAY [, MASK]) or \
+SUM_PREFIX_INCLUSIVE(ARRAY, DIM [, MASK])
+
+<<Description.>>
+<<Class.>>
+<<Arguments.>>
+<<Example.>>
+
+-------------------------------------------------------------------------
+
+===END===
