@@ -95,9 +95,57 @@ REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
 <<Class.>> Transformational function.
 
 <<Arguments.>>
+
+ARRAY shall be an array of any nonpolymorphic type.
+
+OPERATION shall be a pure function with exactly two arguments; each
+          argument shall be a scalar, nonallocatable, noncoarray,
+          nonpointer, nonpolymorphic, nonoptional dummy data object
+          with the same declared type and type parameters as ARRAY. If
+          one argument has the ASYNCHRONOUS, TARGET, or VALUE
+          attribute, the other shall have that attribute. Its result
+          shall be a nonpolymorphic scalar and have the same declared
+          type and type parameters as ARRAY. OPERATION need not be
+          commutative. If ORDERED is absent or false, then OPERATION
+          should implement a mathematically associative operation.
+
+DIM shall be an integer scalar with a value in the range
+    1 <= DIM <= n, where n is the rank of ARRAY.
+
+INITIAL (only for REDUCE_PREFIX_EXCLUSIVE)
+        shall be scalar with the same declared type and type
+        parameters as ARRAY.
+
+ORDERED (optional) shall be a logical scalar.
+
+<<NOTE>> If OPERATION is not computationally associative,
+	 REDUCE_PREFIX_INCLUSIVE without ORDERED=.TRUE. with the same
+	 argument values might not always produce the same result, as
+	 the processor can apply the associative law to the
+	 evaluation.
+
 <<Result Characteristics.>>
+
+The result is of the same declared type, type parameters, rank,
+and shape as ARRAY.
+
 <<Result Value>>.
-<<Example.>>
+
+<<Examples.>>
+
+MULT has been
+     defined as a compliant OPERATION implementing integer
+     multiplication.
+
+     A = | 1 2 3 |
+     B = REDUCE_PREFIX_INCLUSIVE(A, MULT)
+     ! B = | 1 2 6 |
+
+     A = | 1 3 5 |
+         | 2 4 6 |
+     B = REDUCE_PREFIX_INCLUSIVE(A, MULT, DIM = 2)
+     ! B = | 1 3 15 |
+           | 2 8 48 |
 
 -------------------------------------------------------------------------
 
@@ -140,14 +188,12 @@ The result shall have the same type, rank, shape and kind
 
 <<Result Value>>.
 
-S09. The inclusive prefix sum of a sequence S with n elements
-     s_1, s_2, ..., s_n, is the sequence R with n elements
-     r_1, r_2, ..., r_n, where r_i = \sum_{j=1}^i s_j.
-
 Case (i): The result of SUM_PREFIX_INCLUSIVE(ARRAY) is the inclusive
           prefix sum of the sequence of elements of ARRAY in array
           element order, with the result sequence provided in array
-          element order.
+          element order. The inclusive prefix sum of a sequence S with
+          n elements s_1, s_2, ..., s_n, is the sequence R with n
+          elements r_1, r_2, ..., r_n, where r_i = \sum_{j=1}^i s_j.
 
 Case (ii): The MASK argument affects the prefix sum as if ARRAY
            elements corresponding to false elements of MASK had been
@@ -158,17 +204,16 @@ Case (ii): The MASK argument affects the prefix sum as if ARRAY
 Case (iii): If ARRAY has rank one, the result of
             SUM_PREFIX_INCLUSIVE(ARRAY, DIM = DIM [, MASK = MASK]) has
             a value equal to SUM_PREFIX_INCLUSIVE(ARRAY [, MASK =
-            MASK]).
-
-Case (iv): The result of SUM_PREFIX_INCLUSIVE(ARRAY, DIM = DIM [, MASK
-           = MASK]) is defined by the semantics of Case (iii) applied
-           independently along each sequence of ARRAY elements in
-           dimension DIM. The value of result elements (i_1, i_2, ...,
-           i_{DIM-1}, :, i_{DIM+1}, ..., i_n) of
-           SUM_PREFIX_INCLUSIVE(ARRAY, DIM = DIM [, MASK = MASK]) is
-           equal to SUM_PREFIX_INCLUSIVE( ARRAY(i_1, i_2, ...,
-           i_{DIM-1}, :, i_{DIM+1}, ..., i_n), DIM = 1 [, MASK(i_1,
-           i_2, ..., i_{DIM-1}, :, i_{DIM+1}, ..., i_n)])
+            MASK]). Otherwise, the value of
+            SUM_PREFIX_INCLUSIVE(ARRAY, DIM = DIM [, MASK = MASK]) is
+            defined by the semantics of Case (iii) applied
+            independently along each sequence of ARRAY elements in
+            dimension DIM. The value of result elements (i_1, i_2,
+            ..., i_{DIM-1}, :, i_{DIM+1}, ..., i_n) of
+            SUM_PREFIX_INCLUSIVE(ARRAY, DIM = DIM [, MASK = MASK]) is
+            equal to SUM_PREFIX_INCLUSIVE( ARRAY(i_1, i_2, ...,
+            i_{DIM-1}, :, i_{DIM+1}, ..., i_n), DIM = 1 [, MASK(i_1,
+            i_2, ..., i_{DIM-1}, :, i_{DIM+1}, ..., i_n)])
 
 <<Examples.>>
 
@@ -185,6 +230,15 @@ Case (iii):  If A is | 1 2 3 |
               | SUM_PREFIX_INCLUSIVE(A(2,:)) |
              which is | 1 3 6  |
              | 4 9 15 |.
+
+-------------------------------------------------------------------------
+
+A.2 entry for reduce, reduce_prefix when ordered 
+pg. 596:41+ (note + is insert)
+
+The computed value of the intrinsic routines REDUCE (section #), REDUCE_PREFIX_INCLUSIVE,
+REDUCE_PREFIX_EXCLUSIVE (section #) when the ORDERED argument is absent.
+
 
 -------------------------------------------------------------------------
 
