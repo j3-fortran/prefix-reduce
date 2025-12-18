@@ -36,7 +36,7 @@ perform prefix reduction operations."
 after the entry for REDUCE add two new entries (with 2 forms each):
 
 "
-REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL [, ORDERED]) or
+REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL [, ORDERED]) or \
     T    Exclusive prefix reduction
 REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
 "
