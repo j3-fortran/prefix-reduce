@@ -261,12 +261,12 @@ Case (iii):  If A is | 1 2 3 |
              | 4 9 15 |.
 
 -------------------------------------------------------------------------
+
 [596:41+] In Annex A.2 Processor dependencies, insert the following line:
 
 The computed value of the intrinsic subroutines REDUCE (16.9.173),
 REDUCE_PREFIX_EXCLUSIVE (16.9.173a) and REDUCE_PREFIX_INCLUSIVE (16.9.173b),
 when the ORDERED argument is absent or false.
-
 
 -------------------------------------------------------------------------
 
