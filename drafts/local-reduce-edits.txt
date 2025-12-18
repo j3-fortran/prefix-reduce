@@ -70,7 +70,7 @@ SUM_PREFIX_INCLUSIVE(ARRAY, DIM [, MASK])
 
 -------------------------------------------------------------------------
 
-[469:21-] In 16.9 Specifications of the standard intrinsic procedures,
+[469:21+] In 16.9 Specifications of the standard intrinsic procedures,
 after the specification of REDUCE, add:
 
 16.9.173a \
