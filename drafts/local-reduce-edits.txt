@@ -232,12 +232,11 @@ Case (iii):  If A is | 1 2 3 |
              | 4 9 15 |.
 
 -------------------------------------------------------------------------
+[596:41+] In Annex A.2 Processor dependencies, insert the following line:
 
-A.2 entry for reduce, reduce_prefix when ordered 
-pg. 596:41+ (note + is insert)
-
-The computed value of the intrinsic routines REDUCE (section #), REDUCE_PREFIX_INCLUSIVE,
-REDUCE_PREFIX_EXCLUSIVE (section #) when the ORDERED argument is absent.
+The computed value of the intrinsic subroutines REDUCE (16.9.173),
+REDUCE_PREFIX_EXCLUSIVE (16.9.173a) and REDUCE_PREFIX_INCLUSIVE (16.9.173b), 
+when the ORDERED argument is absent or false.
 
 
 -------------------------------------------------------------------------
