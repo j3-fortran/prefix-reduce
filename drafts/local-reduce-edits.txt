@@ -26,7 +26,7 @@ at J3 meeting #237, incorporating the recommendations of 25-195r1.
 -------------------------------------------------------------------------
 [xv] Add to "Intrinsic procedures" the sentences:
 
-"The new instrinsic procedures REDUCE_PREFIX_EXCLUSIVE,
+"The new intrinsic functions REDUCE_PREFIX_EXCLUSIVE,
 REDUCE_PREFIX_INCLUSIVE, SUM_PREFIX_EXCLUSIVE, SUM_PREFIX_INCLUSIVE,
 perform prefix reduction operations."
 
