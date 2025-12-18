@@ -78,8 +78,10 @@ REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL [, ORDERED]) or
 REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
 
 <<Description.>>
-<<Class.>>
+<<Class.>> Transformational function.
 <<Arguments.>>
+<<Result Characteristics.>>
+<<Result Value>>.
 <<Example.>>
 
 16.9.173b \
@@ -87,8 +89,10 @@ REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, INITIAL [, ORDERED]) or
 REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
 
 <<Description.>>
-<<Class.>>
+<<Class.>> Transformational function.
 <<Arguments.>>
+<<Result Characteristics.>>
+<<Result Value>>.
 <<Example.>>
 
 -------------------------------------------------------------------------
@@ -101,8 +105,10 @@ SUM_PREFIX_EXCLUSIVE(ARRAY, [, MASK]) or \
 SUM_PREFIX_EXCLUSIVE(ARRAY, DIM [, MASK])
 
 <<Description.>>
-<<Class.>>
+<<Class.>> Transformational function.
 <<Arguments.>>
+<<Result Characteristics.>>
+<<Result Value>>.
 <<Example.>>
 
 16.9.201b \
@@ -110,8 +116,10 @@ SUM_PREFIX_INCLUSIVE(ARRAY [, MASK]) or \
 SUM_PREFIX_INCLUSIVE(ARRAY, DIM [, MASK])
 
 <<Description.>>
-<<Class.>>
+<<Class.>> Transformational function.
 <<Arguments.>>
+<<Result Characteristics.>>
+<<Result Value>>.
 <<Example.>>
 
 -------------------------------------------------------------------------
