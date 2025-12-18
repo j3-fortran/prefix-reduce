@@ -18,7 +18,7 @@ in June 2025.
 The corresponding sum prefix intrinsics syntax and specifications were
 passed in 25-186r2 at J3 meeting #237 in Oct 2025.  The general reduce
 prefix instrinsics syntax and specifications were passed in 25-196r1
-at J3 meeting #237 incorporate recommendations of 25-195r1.
+at J3 meeting #237, incorporating the recommendations of 25-195r1.
 
 2. Edits Relative to 25-007r1
 =============================
