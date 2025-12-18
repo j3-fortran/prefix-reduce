@@ -77,7 +77,7 @@ after the specification of REDUCE, add:
 REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL [, ORDERED]) or
 REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
 
-<<Description.>>
+<<Description.>> Generalized exclusive prefix reduction.
 <<Class.>> Transformational function.
 <<Arguments.>>
 <<Result Characteristics.>>
@@ -88,7 +88,7 @@ REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
 REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, INITIAL [, ORDERED]) or
 REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
 
-<<Description.>>
+<<Description.>> Generalized inclusive prefix reduction.
 <<Class.>> Transformational function.
 <<Arguments.>>
 <<Result Characteristics.>>
@@ -104,7 +104,7 @@ after the specification of SUM, add:
 SUM_PREFIX_EXCLUSIVE(ARRAY, [, MASK]) or \
 SUM_PREFIX_EXCLUSIVE(ARRAY, DIM [, MASK])
 
-<<Description.>>
+<<Description.>> Exclusive prefix sum.
 <<Class.>> Transformational function.
 <<Arguments.>>
 <<Result Characteristics.>>
@@ -115,7 +115,7 @@ SUM_PREFIX_EXCLUSIVE(ARRAY, DIM [, MASK])
 SUM_PREFIX_INCLUSIVE(ARRAY [, MASK]) or \
 SUM_PREFIX_INCLUSIVE(ARRAY, DIM [, MASK])
 
-<<Description.>>
+<<Description.>> Inclusive prefix sum.
 <<Class.>> Transformational function.
 <<Arguments.>>
 <<Result Characteristics.>>
