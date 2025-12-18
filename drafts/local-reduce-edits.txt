@@ -37,7 +37,7 @@ after the entry for REDUCE add two new entries (with 2 forms each):
 
 "
 REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL [, ORDERED]) or \
-    T    Exclusive prefix reduction
+    T    General exclusive prefix reduction of array
 REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
 "
 
@@ -45,7 +45,7 @@ and:
 
 "
 REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION [, ORDERED]) or \
-    T    Inclusive prefix reduction
+    T    General inclusive prefix reduction of array
 REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM [, ORDERED])
 "
 
@@ -77,8 +77,10 @@ after the specification of REDUCE, add:
 REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL [, ORDERED]) or
 REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
 
-<<Description.>> Generalized exclusive prefix reduction.
+<<Description.>> General exclusive prefix reduction of array.
+
 <<Class.>> Transformational function.
+
 <<Arguments.>>
 <<Result Characteristics.>>
 <<Result Value>>.
@@ -88,8 +90,10 @@ REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
 REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, INITIAL [, ORDERED]) or
 REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
 
-<<Description.>> Generalized inclusive prefix reduction.
+<<Description.>> General inclusive prefix reduction of array.
+
 <<Class.>> Transformational function.
+
 <<Arguments.>>
 <<Result Characteristics.>>
 <<Result Value>>.
