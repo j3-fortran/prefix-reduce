@@ -97,7 +97,7 @@ REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
 
 -------------------------------------------------------------------------
 
-[482:26-] In 16.9 Specifications of the standard intrinsic procedures,
+[482:26+] In 16.9 Specifications of the standard intrinsic procedures,
 after the specification of SUM, add:
 
 16.9.201a \
