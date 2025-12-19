@@ -123,18 +123,18 @@ Case (i): The result of REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION,
           value INITIAL, of the sequence defined by elements of ARRAY
           in array element order, with the result sequence provided in
           array element order.  The exclusive prefix reduction of a
-          sequence S with n items s_1, s_2, ..., s_n, with OPERATION
-          and initial value INITIAL, is the sequence R with n items
+          sequence s_1, s_2, ..., s_n, with OPERATION
+          and initial value INITIAL, is the sequence 
           r_1, r_2, ..., r_n.  r_1 is INITIAL, and for i>1, r_i is the
           generalized noncommutative reduction with OPERATION of the
           sequence INITIAL, s_1, s_2, ..., s_{i-1}.  The result of a
-          generalized noncommutative reduction of a non-empty sequence
+          generalized noncommutative reduction of a sequence
           of items with OPERATION is the result of an iterative
           process. While the sequence has more than one item, each
           iteration involves the selection of two adjacent items x and
           y, with x immediately preceding y, and the subsequent
           replacement of the two selected items in the sequence with
-          the single value OPERATION(x, y), preserving order. If the
+          the value OPERATION(x, y), preserving order. If the
           ORDERED argument is present with the value true, then x is
           the first item in the sequence. Otherwise, the choice of x
           is processor-dependent.
@@ -158,7 +158,7 @@ Case (ii): If ARRAY has rank one, then the result of
 <<NOTE>> The generalized noncommutative reduction described above
           matches the iterative process specified for REDUCE.
 
-<<Examples.>> The following examples all use the function MULT, which
+<<Examples.>> The following examples use the function MULT, which
 returns the product of its two integer arguments.
 
 Case (i): The value of REDUCE_PREFIX_EXCLUSIVE([3, 2, 5], MULT, INITIAL=2) is [2, 6, 12].
@@ -213,17 +213,17 @@ Case (i): The result of REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION) is
           the inclusive prefix reduction of the sequence defined by
           elements of ARRAY in array element order, with the result
           sequence provided in array element order.  The inclusive
-          prefix reduction of a sequence S with n items s_1, s_2, ...,
-          s_n, with OPERATION, is the sequence R with n items r_1,
+          prefix reduction of a sequence s_1, s_2, ...,
+          s_n, with OPERATION, is the sequence r_1,
           r_2, ..., r_n.  r_i is the generalized noncommutative
           reduction with OPERATION of the sequence s_1, s_2, ..., s_i.
           The result of a generalized noncommutative reduction of a
-          non-empty sequence of items with OPERATION is the result of
+          sequence of items with OPERATION is the result of
           an iterative process. While the sequence has more than one
           item, each iteration involves the selection of two adjacent
           items x and y, with x immediately preceding y, and the
           subsequent replacement of the two selected items in the
-          sequence with the single value OPERATION(x, y), preserving
+          sequence with the value OPERATION(x, y), preserving
           order. If the ORDERED argument is present with the value
           true, then x is the first item in the sequence. Otherwise,
           the choice of x is processor dependent.
@@ -245,7 +245,7 @@ Case (ii): If ARRAY has rank one, then the result of
 <<NOTE>> The generalized noncommutative reduction described above
          matches the iterative process specified for REDUCE.
 
-<<Examples.>> The following examples all use the function MULT, which
+<<Examples.>> The following examples use the function MULT, which
 returns the product of its two integer arguments.
 
 Case (i): The value of REDUCE_PREFIX_INCLUSIVE([2, 3, 4], MULT) is [2, 6, 24].
@@ -288,9 +288,9 @@ The result shall have the same type, rank, shape and kind
 Case (i): The result of SUM_PREFIX_EXCLUSIVE(ARRAY) is the exclusive
           prefix sum of the sequence of elements of ARRAY in array
           element order, with the result sequence provided in array
-          element order. The exclusive prefix sum of a sequence S with
-          n items s_1, s_2, ..., s_n, is the sequence R with n
-          items r_1, r_2, ..., r_n, where r_i = \sum_{j=0}^{i-1}
+          element order. The exclusive prefix sum of a sequence
+          s_1, s_2, ..., s_n, is the sequence 
+          r_1, r_2, ..., r_n, where r_i = \sum_{j=0}^{i-1}
           s_j with s_0 = 0.
 
 Case (ii): The MASK argument affects the prefix sum as if ARRAY
@@ -356,8 +356,8 @@ ARRAY.
 Case (i): The result of SUM_PREFIX_INCLUSIVE(ARRAY) is the inclusive
           prefix sum of the sequence of elements of ARRAY in array
           element order, with the result sequence provided in array
-          element order. The inclusive prefix sum of a sequence S with
-          n items s_1, s_2, ..., s_n, is the sequence R with n items
+          element order. The inclusive prefix sum of a sequence 
+          s_1, s_2, ..., s_n, is the sequence
           r_1, r_2, ..., r_n, where r_i = \sum_{j=1}^i s_j.
 
 Case (ii): The MASK argument affects the prefix sum as if ARRAY
