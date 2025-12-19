@@ -56,7 +56,7 @@ REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM [, ORDERED])
 after the entry for SUM add two new entries (with 2 forms each):
 
 "
-SUM_PREFIX_EXCLUSIVE(ARRAY, [, MASK]) or \
+SUM_PREFIX_EXCLUSIVE(ARRAY [, MASK]) or \
     T    Exclusive prefix sum of array
 SUM_PREFIX_EXCLUSIVE(ARRAY, DIM [, MASK])
 "
@@ -135,9 +135,9 @@ Case (i): The result of REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION,
           y, with x immediately preceding y, and the subsequent
           replacement of the two selected items in the sequence with
           the single value OPERATION(x, y), preserving order. If the
-          ORDERED argument is present with the value .TRUE., then x is
+          ORDERED argument is present with the value true, then x is
           the first item in the sequence. Otherwise, the choice of x
-          is processor dependent.
+          is processor-dependent.
 
 Case (ii): If ARRAY has rank one, then the result of
            REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [,
@@ -155,7 +155,7 @@ Case (ii): If ARRAY has rank one, then the result of
            = OPERATION, INITIAL = INITIAL, DIM = 1 [, ORDERED =
            ORDERED] ).
 
-<<NOTE>> The generalized noncommutative reduction described aboved
+<<NOTE>> The generalized noncommutative reduction described above
           matches the iterative process specified for REDUCE.
 
 <<Examples.>> The following examples all use the function MULT, which
@@ -169,7 +169,7 @@ Case (ii): If A is the array | 2 2 3 4 |
                                                                | 1 2 2 4  |.
 
 16.9.173b \
-REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, [, ORDERED]) or
+REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION [, ORDERED]) or
 REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM [, ORDERED])
 
 <<Description.>> General inclusive prefix reduction of array.
@@ -225,7 +225,7 @@ Case (i): The result of REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION) is
           subsequent replacement of the two selected items in the
           sequence with the single value OPERATION(x, y), preserving
           order. If the ORDERED argument is present with the value
-          .TRUE., then x is the first item in the sequence. Otherwise,
+          true, then x is the first item in the sequence. Otherwise,
           the choice of x is processor dependent.
 
 Case (ii): If ARRAY has rank one, then the result of
@@ -242,7 +242,7 @@ Case (ii): If ARRAY has rank one, then the result of
            ARRAY(i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n), OPERATION
            = OPERATION, DIM = 1 [, ORDERED = ORDERED] ).
 
-<<NOTE>> The generalized noncommutative reduction described aboved
+<<NOTE>> The generalized noncommutative reduction described above
          matches the iterative process specified for REDUCE.
 
 <<Examples.>> The following examples all use the function MULT, which
@@ -261,7 +261,7 @@ Case (ii): If A is the array | 2 3 5 |
 after the specification of SUM, add:
 
 16.9.201a \
-SUM_PREFIX_EXCLUSIVE(ARRAY, [, MASK]) or \
+SUM_PREFIX_EXCLUSIVE(ARRAY [, MASK]) or \
 SUM_PREFIX_EXCLUSIVE(ARRAY, DIM [, MASK])
 
 <<Description.>> Exclusive prefix sum of array.
