@@ -138,7 +138,8 @@ Case (i): The result of REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION,
           the value OPERATION(x, y), preserving order. If the
           ORDERED argument is present with the value true, then x is
           the first item in the sequence. Otherwise, the choice of x
-          is processor-dependent.
+          is processor-dependent. When the sequence has a single 
+          item, that is the result.
 
 Case (ii): If ARRAY has rank one, then the result of
            REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [,
@@ -228,7 +229,8 @@ Case (i): The result of REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION) is
           sequence with the value OPERATION(x, y), preserving
           order. If the ORDERED argument is present with the value
           true, then x is the first item in the sequence. Otherwise,
-          the choice of x is processor dependent.
+          the choice of x is processor dependent. When the sequence has a single
+          item, that is the result.
 
 Case (ii): If ARRAY has rank one, then the result of
            REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM [, ORDERED])
