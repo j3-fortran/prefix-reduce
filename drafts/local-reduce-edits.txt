@@ -83,9 +83,85 @@ REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
 <<Class.>> Transformational function.
 
 <<Arguments.>>
+
+ARRAY shall be an array of any nonpolymorphic type.
+
+OPERATION shall be a pure function with exactly two arguments; each
+          argument shall be a scalar, nonallocatable, noncoarray,
+          nonpointer, nonpolymorphic, nonoptional dummy data object
+          with the same declared type and type parameters as ARRAY. If
+          one argument has the ASYNCHRONOUS, TARGET, or VALUE
+          attribute, the other shall have that attribute. Its result
+          shall be a nonpolymorphic scalar and have the same declared
+          type and type parameters as ARRAY. OPERATION need not be
+          commutative. If ORDERED is absent or false, then OPERATION
+          should implement a mathematically associative operation.
+
+DIM shall be an integer scalar with a value in the range
+    1 <= DIM <= n, where n is the rank of ARRAY.
+
+INITIAL shall be scalar with the same declared type and type
+        parameters as ARRAY.
+
+ORDERED (optional) shall be a logical scalar.
+
+<<NOTE>> If OPERATION is not computationally associative,
+         REDUCE_PREFIX_EXCLUSIVE without ORDERED=.TRUE. with the same
+         argument values might not always produce the same result, as
+         the processor can apply the associative law to the
+         evaluation.
+
 <<Result Characteristics.>>
-<<Result Value.>>
-<<Example.>>
+
+Case (i): The result of REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION,
+          INITIAL) is the exclusive prefix reduction, with initial
+          value INITIAL, of the sequence defined by elements of ARRAY
+          in array element order, with the result sequence provided in
+          array element order.  The exclusive prefix reduction of a
+          sequence S with n items s_1, s_2, ..., s_n, with OPERATION
+          and initial value INITIAL, is the sequence R with n items
+          r_1, r_2, ..., r_n.  r_1 is INITIAL, and for i>1, r_i is the
+          generalized noncommutative reduction with OPERATION of the
+          sequence INITIAL, s_1, s_2, ..., s_{i-1}.  The result of a
+          generalized noncommutative reduction of a non-empty sequence
+          of items with OPERATION is the result of an iterative
+          process. While the sequence has more than one element, each
+          iteration involves the selection of two adjacent items x and
+          y, with x immediately preceding y, and the subsequent
+          replacement of the two selected items in the sequence with
+          the single value OPERATION(x, y), preserving order. If the
+          ORDERED argument is present with the value true, then x is
+          the first item in the sequence. Otherwise, the choice of x
+          is processor dependent.
+
+Case (ii): If ARRAY has rank one, then the result of
+           REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [,
+           ORDERED]) has a value equal to
+           REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL [,
+           ORDERED]). Otherwise, the result of
+           REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [,
+           ORDERED]) is defined by the semantics of Case (i) applied
+           independently along each sequence of ARRAY elements in
+           dimension DIM. The value of result elements
+           (i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n) of
+           REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [,
+           ORDERED = ORDERED]) is equal to REDUCE_PREFIX_EXCLUSIVE(
+           ARRAY(i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n), OPERATION
+           = OPERATION, DIM = 1 [, ORDERED = ORDERED] ).
+
+<<NOTE.>> The generalized noncommutative reduction described aboved
+          matches the iterative process specified for REDUCE.
+
+<<Examples.>> The following examples all use the function MULT, which \
+returns the product of its two integer arguments.
+
+! also include the INITIAL=1 example from 25-196r1 ?
+Case (i): The value of REDUCE_PREFIX_EXCLUSIVE([3, 2, 5], MULT, INITIAL=2) is [2, 6, 12].
+
+Case (ii): If A is the array | 2 2 3 4 |
+                             | 2 1 2 3 |
+    then REDUCE_PREFIX_EXCLUSIVE(A, MULT, INITIAL=1, DIM=2) is | 1 2 4 12 |
+                                                               | 1 2 2 4  |.
 
 16.9.173b \
 REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, INITIAL [, ORDERED]) or
@@ -113,10 +189,6 @@ OPERATION shall be a pure function with exactly two arguments; each
 DIM shall be an integer scalar with a value in the range
     1 <= DIM <= n, where n is the rank of ARRAY.
 
-INITIAL (only for REDUCE_PREFIX_EXCLUSIVE)
-        shall be scalar with the same declared type and type
-        parameters as ARRAY.
-
 ORDERED (optional) shall be a logical scalar.
 
 <<NOTE>> If OPERATION is not computationally associative,
@@ -139,8 +211,8 @@ Case (i): The result of REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION) is
           prefix reduction of a sequence S with n items s_1, s_2, ...,
           s_n, with OPERATION, is the sequence R with n items r_1,
           r_2, ..., r_n.  r_i is the generalized noncommutative
-          reduction with f of the sequence s_1, s_2, ..., s_i.  The
-          result of a generalized noncommutative reduction of a
+          reduction with OPERATION of the sequence s_1, s_2, ..., s_i.
+          The result of a generalized noncommutative reduction of a
           non-empty sequence of items with OPERATION is the result of
           an iterative process. While the sequence has more than one
           element, each iteration involves the selection of two
