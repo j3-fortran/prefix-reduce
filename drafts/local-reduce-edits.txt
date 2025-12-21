@@ -133,17 +133,18 @@ Case (i): The result of REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL) is
           sequence has a single item, that is the result.
 
 Case (ii): If ARRAY has rank one, then the result of
-           REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
-           has a value equal to REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION,
-           INITIAL [, ORDERED]). Otherwise, the result of
-           REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED])
-           is defined by the semantics of Case (i) applied independently along
+           REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM = DIM
+           [, ORDERED = ORDERED ]) has a value equal to
+           REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL [, ORDERED =
+           ORDERED]). Otherwise, the result of REDUCE_PREFIX_EXCLUSIVE(ARRAY,
+           OPERATION, INITIAL, DIM = DIM [, ORDERED = ORDERED]) is defined by
+           the semantics of Case (i) applied independently along
            each sequence of ARRAY elements in dimension DIM. The value of result
            elements (i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n) of
-           REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM [, ORDERED =
-           ORDERED]) is equal to REDUCE_PREFIX_EXCLUSIVE(
-           ARRAY(i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n), OPERATION =
-           OPERATION, INITIAL = INITIAL, DIM = 1 [, ORDERED = ORDERED] ).
+           REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM = DIM
+           [, ORDERED = ORDERED]) is equal to REDUCE_PREFIX_EXCLUSIVE(
+           ARRAY(i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n), OPERATION, INITIAL,
+           DIM = 1 [, ORDERED = ORDERED] ).
 
 <<NOTE>> The generalized noncommutative reduction described above matches the
          iterative process specified for REDUCE.
@@ -217,17 +218,18 @@ Case (i): The result of REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION) is the
           item, that is the result.
 
 Case (ii): If ARRAY has rank one, then the result of
-           REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM [, ORDERED]) has a
-           value equal to REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION [, ORDERED]).
-           Otherwise, the result of REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION,
-           DIM [, ORDERED]) is defined by the semantics of Case (i) applied
+           REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM = DIM [, ORDERED =
+           ORDERED]) has a value equal to REDUCE_PREFIX_INCLUSIVE(ARRAY,
+           OPERATION [, ORDERED = ORDERED]).  Otherwise, the result of
+           REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM = DIM [, ORDERED =
+           ORDERED]) is defined by the semantics of Case (i) applied
            independently along each sequence of ARRAY elements in dimension DIM.
            The value of result elements
            (i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n) of
-           REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM [, ORDERED = ORDERED])
-           is equal to REDUCE_PREFIX_INCLUSIVE(
-           ARRAY(i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n), OPERATION =
-           OPERATION, DIM = 1 [, ORDERED = ORDERED] ).
+           REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM =DIM [, ORDERED =
+           ORDERED]) is equal to REDUCE_PREFIX_INCLUSIVE(
+           ARRAY(i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n), OPERATION, DIM = 1
+           [, ORDERED = ORDERED] ).
 
 <<NOTE>> The generalized noncommutative reduction described above matches the
          iterative process specified for REDUCE.
@@ -289,8 +291,8 @@ Case (iii): If ARRAY has rank one, the result of SUM_PREFIX_EXCLUSIVE(ARRAY,
             (i_1, i_2, ..., i_{DIM-1}, :, i_{DIM+1}, ..., i_n) of
             SUM_PREFIX_EXCLUSIVE(ARRAY, DIM = DIM [, MASK = MASK]) is equal to
             SUM_PREFIX_EXCLUSIVE(ARRAY(i_1, i_2, ..., i_{DIM-1}, :, i_{DIM+1},
-            ..., i_n), DIM = 1 [, MASK(i_1, i_2, ..., i_{DIM-1}, :, i_{DIM+1},
-            ..., i_n)])
+            ..., i_n), DIM = 1 [, MASK = MASK(i_1, i_2, ..., i_{DIM-1}, :,
+            i_{DIM+1}, ..., i_n)])
 
 <<Examples.>>
 
@@ -349,8 +351,8 @@ Case (iii): If ARRAY has rank one, the result of SUM_PREFIX_INCLUSIVE(ARRAY,
             (i_1, i_2, ..., i_{DIM-1}, :, i_{DIM+1}, ..., i_n) of
             SUM_PREFIX_INCLUSIVE(ARRAY, DIM = DIM [, MASK = MASK]) is equal to
             SUM_PREFIX_INCLUSIVE(ARRAY(i_1, i_2, ..., i_{DIM-1}, :, i_{DIM+1},
-            ..., i_n), DIM = 1 [, MASK(i_1, i_2, ..., i_{DIM-1}, :, i_{DIM+1},
-            ..., i_n)])
+            ..., i_n), DIM = 1 [, MASK = MASK(i_1, i_2, ..., i_{DIM-1}, :,
+            i_{DIM+1}, ..., i_n)])
 
 <<Examples.>>
 
