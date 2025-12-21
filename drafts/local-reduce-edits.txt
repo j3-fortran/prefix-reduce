@@ -109,8 +109,8 @@ ORDERED (optional) shall be a logical scalar.
 
 <<Result Characteristics.>>
 
-The result is of the same declared type, type parameters, rank,
-and shape as ARRAY.
+The result is of the same declared type, type parameters, rank, and shape as
+ARRAY.
 
 <<Result Value.>>
 
@@ -213,7 +213,7 @@ Case (i): The result of REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION) is the
           of the two selected items in the sequence with the value OPERATION(x,
           y), preserving order. If the ORDERED argument is present with the
           value true, then x is the first item in the sequence. Otherwise, the
-          choice of x is processor dependent. When the sequence has a single
+          choice of x is processor-dependent. When the sequence has a single
           item, that is the result.
 
 Case (ii): If ARRAY has rank one, then the result of
