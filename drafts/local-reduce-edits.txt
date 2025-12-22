@@ -114,21 +114,22 @@ ARRAY.
 
 <<Result Value.>>
 
-Case (i): The result of REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL) is
-          the exclusive prefix reduction, with initial value INITIAL, of the
-          sequence defined by elements of ARRAY in array element order, with the
-          result sequence provided in array element order.  The exclusive prefix
-          reduction of a sequence s_1, s_2, ..., s_n, with OPERATION and initial
-          value INITIAL, is the sequence r_1, r_2, ..., r_n.  r_1 is INITIAL,
-          and for i>1, each r_i is the result of an iterative process over the
-          sequence INITIAL, s_1, s_2, ..., s_{i-1}.  While the sequence
-          has more than one item, each iteration involves the selection of two
-          adjacent items x and y, with x immediately preceding y, and the
-          subsequent replacement of the two selected items in the sequence with
-          the value OPERATION(x, y), preserving order. If the ORDERED argument
-          is present with the value true, then x is the first item in the
-          sequence. Otherwise, the choice of x is processor-dependent. When the
-          sequence has a single item, that is the result.
+Case (i): The result of REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL
+          [, ORDERED]) is the exclusive prefix reduction, with initial value
+          INITIAL, of the sequence defined by elements of ARRAY in array element
+          order, with the result sequence provided in array element order.  The
+          exclusive prefix reduction of a sequence s_1, s_2, ..., s_n, with
+          OPERATION and initial value INITIAL, is the sequence r_1, r_2, ...,
+          r_n.  r_1 is INITIAL, and for i>1, each r_i is the result of an
+          iterative process over the sequence INITIAL, s_1, s_2, ..., s_{i-1}.
+          While the sequence has more than one item, each iteration involves the
+          selection of two adjacent items x and y, with x immediately preceding
+          y, and the subsequent replacement of the two selected items in the
+          sequence with the value of OPERATION(x, y), preserving order. If the
+          ORDERED argument is present with the value true, then x is the first
+          item in the sequence. Otherwise, the choice of x is
+          processor-dependent. When the sequence has a single item, that is the
+          result.
 
 Case (ii): If ARRAY has rank one, then the result of
            REDUCE_PREFIX_EXCLUSIVE(ARRAY, OPERATION, INITIAL, DIM = DIM
@@ -198,20 +199,20 @@ ARRAY.
 
 <<Result Value.>>
 
-Case (i): The result of REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION) is the
-          inclusive prefix reduction of the sequence defined by elements of
+Case (i): The result of REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION [, ORDERED]) is
+          the inclusive prefix reduction of the sequence defined by elements of
           ARRAY in array element order, with the result sequence provided in
           array element order.  The inclusive prefix reduction of a sequence
           s_1, s_2, ..., s_n, with OPERATION, is the sequence r_1, r_2, ...,
           r_n.  Each r_i is the result of an iterative process over the sequence
-          s_1, s_2, ..., s_i.  While the sequence has more than one
-          item, each iteration involves the selection of two adjacent items x
-          and y, with x immediately preceding y, and the subsequent replacement
-          of the two selected items in the sequence with the value OPERATION(x,
-          y), preserving order. If the ORDERED argument is present with the
-          value true, then x is the first item in the sequence. Otherwise, the
-          choice of x is processor-dependent. When the sequence has a single
-          item, that is the result.
+          s_1, s_2, ..., s_i.  While the sequence has more than one item, each
+          iteration involves the selection of two adjacent items x and y, with x
+          immediately preceding y, and the subsequent replacement of the two
+          selected items in the sequence with the value of OPERATION(x, y),
+          preserving order. If the ORDERED argument is present with the value
+          true, then x is the first item in the sequence. Otherwise, the choice
+          of x is processor-dependent. When the sequence has a single item, that
+          is the result.
 
 Case (ii): If ARRAY has rank one, then the result of
            REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM = DIM [, ORDERED =
