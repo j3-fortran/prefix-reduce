@@ -148,16 +148,16 @@ Case (ii): If ARRAY has rank one, then the result of
 <<NOTE>> The iterative process described above for each r_i matches the
          iterative process specified for REDUCE.
 
-<<Examples.>> The following examples use the function MULT, which returns the
+<<Examples.>> The following examples use the function MY_MULT, which returns the
 product of its two integer arguments.
 
-Case (i): The value of REDUCE_PREFIX_EXCLUSIVE([3, 2, 5], MULT, INITIAL=2)
+Case (i): The value of REDUCE_PREFIX_EXCLUSIVE([3, 2, 5], MY_MULT, INITIAL=2)
           is [2, 6, 12].
 
 Case (ii): If A is the array | 2 2 3 4 |
                              | 2 1 2 3 |
-    then REDUCE_PREFIX_EXCLUSIVE(A, MULT, INITIAL=1, DIM=2) is | 1 2 4 12 |
-                                                               | 1 2 2 4  |.
+    then REDUCE_PREFIX_EXCLUSIVE(A, MY_MULT, INITIAL=1, DIM=2) is | 1 2 4 12 |
+                                                                  | 1 2 2 4  |.
 
 16.9.173b REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION [, ORDERED]) or \
           REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM [, ORDERED])
@@ -231,15 +231,16 @@ Case (ii): If ARRAY has rank one, then the result of
 <<NOTE>> The iterative process described above for each r_i matches the
          iterative process specified for REDUCE.
 
-<<Examples.>> The following examples use the function MULT, which
+<<Examples.>> The following examples use the function MY_MULT, which
 returns the product of its two integer arguments.
 
-Case (i): The value of REDUCE_PREFIX_INCLUSIVE([2, 3, 4], MULT) is [2, 6, 24].
+Case (i): The value of REDUCE_PREFIX_INCLUSIVE([2, 3, 4], MY_MULT) is
+          [2, 6, 24].
 
 Case (ii): If A is the array | 2 3 5 |
                              | 2 4 6 |
-    then REDUCE_PREFIX_INCLUSIVE(A, MULT, DIM = 2) is | 2 6 30 |
-                                                      | 2 8 48 |.
+    then REDUCE_PREFIX_INCLUSIVE(A, MY_MULT, DIM = 2) is | 2 6 30 |
+                                                         | 2 8 48 |.
 
 -------------------------------------------------------------------------
 
@@ -272,7 +273,8 @@ Case (i): The result of SUM_PREFIX_EXCLUSIVE(ARRAY) is the exclusive prefix sum
           of the sequence of elements of ARRAY in array element order, with the
           result sequence provided in array element order. The exclusive prefix
           sum of a sequence s_1, s_2, ..., s_n, is the sequence r_1, r_2, ...,
-          r_n, where r_i = \sum_{j=0}^{i-1} s_j with s_0 = 0.
+          r_n, where r_1 is zero, and for i>1, each r_i is a processor-dependent
+          approximation to the sum of the elements s_1, s_2, ..., s_{i-1}.
 
 Case (ii): The MASK argument affects the prefix sum as if ARRAY elements
            corresponding to false elements of MASK had been replaced by 0.  The
@@ -332,7 +334,8 @@ Case (i): The result of SUM_PREFIX_INCLUSIVE(ARRAY) is the inclusive prefix sum
           of the sequence of elements of ARRAY in array element order, with the
           result sequence provided in array element order. The inclusive prefix
           sum of a sequence s_1, s_2, ..., s_n, is the sequence r_1, r_2, ...,
-          r_n, where r_i = \sum_{j=1}^i s_j.
+          r_n, where each r_i is a processor-dependent approximation to the
+          sum of the elements s_1, s_2, ..., s_i.
 
 Case (ii): The MASK argument affects the prefix sum as if ARRAY elements
            corresponding to false elements of MASK had been replaced by 0.  The
