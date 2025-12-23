@@ -272,7 +272,8 @@ Case (i): The result of SUM_PREFIX_EXCLUSIVE(ARRAY) is the exclusive prefix sum
           of the sequence of elements of ARRAY in array element order, with the
           result sequence provided in array element order. The exclusive prefix
           sum of a sequence s_1, s_2, ..., s_n, is the sequence r_1, r_2, ...,
-          r_n, where r_i = \sum_{j=0}^{i-1} s_j with s_0 = 0.
+          r_n, where r_1 is zero, and for i>1, each r_i is a processor-dependent
+          approximation to the sum of the elements s_1, s_2, ..., s_{i-1}.
 
 Case (ii): The MASK argument affects the prefix sum as if ARRAY elements
            corresponding to false elements of MASK had been replaced by 0.  The
@@ -332,7 +333,8 @@ Case (i): The result of SUM_PREFIX_INCLUSIVE(ARRAY) is the inclusive prefix sum
           of the sequence of elements of ARRAY in array element order, with the
           result sequence provided in array element order. The inclusive prefix
           sum of a sequence s_1, s_2, ..., s_n, is the sequence r_1, r_2, ...,
-          r_n, where r_i = \sum_{j=1}^i s_j.
+          r_n, where each r_i is a processor-dependent approximation to the
+          sum of the elements s_1, s_2, ..., s_i.
 
 Case (ii): The MASK argument affects the prefix sum as if ARRAY elements
            corresponding to false elements of MASK had been replaced by 0.  The
