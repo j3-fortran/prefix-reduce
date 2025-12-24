@@ -223,7 +223,7 @@ Case (ii): If ARRAY has rank one, then the result of
            independently along each sequence of ARRAY elements in dimension DIM.
            The value of result elements
            (i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n) of
-           REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM =DIM [, ORDERED =
+           REDUCE_PREFIX_INCLUSIVE(ARRAY, OPERATION, DIM = DIM [, ORDERED =
            ORDERED]) is equal to REDUCE_PREFIX_INCLUSIVE(
            ARRAY(i_1,i_2,...,i_(DIM-1),:,i_(DIM+1),...,i_n), OPERATION, DIM = 1
            [, ORDERED = ORDERED] ).
