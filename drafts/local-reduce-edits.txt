@@ -87,7 +87,8 @@ OPERATION shall be a pure function with exactly two arguments; each argument
           nonpolymorphic, nonoptional dummy data object with the same declared
           type and type parameters as ARRAY. If one argument has the
           ASYNCHRONOUS, TARGET, or VALUE attribute, the other shall have that
-          attribute. Its result shall be a nonpolymorphic scalar and have the
+          attribute. Its result shall be a nonallocatable, nonpointer,
+          nonpolymorphic scalar and have the
           same declared type and type parameters as ARRAY. OPERATION need not be
           commutative. If ORDERED is absent or false, then OPERATION should
           implement a mathematically associative operation.
@@ -175,7 +176,8 @@ OPERATION shall be a pure function with exactly two arguments; each argument
           nonpolymorphic, nonoptional dummy data object with the same declared
           type and type parameters as ARRAY. If one argument has the
           ASYNCHRONOUS, TARGET, or VALUE attribute, the other shall have that
-          attribute. Its result shall be a nonpolymorphic scalar and have the
+          attribute. Its result shall be a nonallocatable, nonpointer,
+          nonpolymorphic scalar and have the
           same declared type and type parameters as ARRAY. OPERATION need not be
           commutative. If ORDERED is absent or false, then OPERATION should
           implement a mathematically associative operation.
